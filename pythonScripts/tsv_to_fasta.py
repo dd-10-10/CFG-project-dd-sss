@@ -27,9 +27,9 @@ def tsv_to_fasta(in_tsv:Path, in_fa:Path, out_fa:Path) -> None:
     a = a.sequence(fi=in_fa, fo = out_fa,nameOnly=True)
 
 def main() -> None:
-    TSV_FOLDER = Path("Data/tsv")
-    FASTA_FOLDER = Path("Data/fasta")
-    GENOME_FASTA = Path("Data/hg38.fa")
+    TSV_FOLDER = Path("data/tsv")
+    FASTA_FOLDER = Path("data/fasta")
+    GENOME_FASTA = Path("data/hg38.fa")
     for file in os.listdir(TSV_FOLDER):
         if file.endswith(".tsv"):
             file = TSV_FOLDER / file
