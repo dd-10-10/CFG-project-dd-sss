@@ -67,6 +67,7 @@ def main():
     np.save(f"data/markov_mle/ctcf_u_markov_m{m}.npy", u_arr)
     np.save(f"data/markov_mle/ctcf_b_markov_m{m}.npy", b_arr)
     print("Markov MLE arrays saved.")
+    return
 
 if __name__ == "__main__":
     main()

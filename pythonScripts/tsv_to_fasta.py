@@ -25,6 +25,7 @@ def tsv_to_fasta(in_tsv:Path, in_fa:Path, out_fa:Path) -> None:
     df = df[['chr', 'start', 'end', 'name']]
     a = pybedtools.BedTool(df.values.tolist())
     a = a.sequence(fi=in_fa, fo = out_fa,nameOnly=True)
+    return
 
 def main() -> None:
     TSV_FOLDER = Path("data/tsv")
