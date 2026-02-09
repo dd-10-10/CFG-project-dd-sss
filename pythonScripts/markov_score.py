@@ -1,16 +1,22 @@
 import numpy as np
 import pandas as pd
 from pathlib import Path
-from markov_mle import seq_to_pos
+from globals import base_dict, tf_dict, seq_to_pos
 
-def score(in_fasta_path: str, b_arr: np.ndarray, u_arr: np.ndarray, m: int, tf: str):
+def score(in_fasta_path: str, b_arr: np.ndarray, u_arr: np.ndarray, m: int, tf: str) -> tuple[list[float], list[str]]:
     '''
+    Calculate log-odds score for sequences in a fasta file using transition probability matrices
+    
+    Arguments:
+        in_fasta_path: Path to the input fasta files
+        b_arr: Transition probability matrix for bound sequences
+        u_arr: Transition probability matrix for unbound sequences
+        m: Order of Markov model
+        tf: Transcription Factor to consider
+    
     Returns:
-        List of log-odds scores for each sequence,
-        List of true labels for each sequence
+        Tuple of (List of predicted log-odds scores, List of true labels)
     '''
-    base_dict= {"A": 0, "C": 1, "G": 2, "T": 3}
-    tf_dict= {"ATAC": 0, "CTCF": 1, "REST":2, "EP300":3}
 
     scores_l= []
     true_l= []
@@ -25,8 +31,8 @@ def score(in_fasta_path: str, b_arr: np.ndarray, u_arr: np.ndarray, m: int, tf: 
                     hist= line[i:i+m]
                     row= seq_to_pos(hist) #Row index of each k-mer in the arrays is the seq_to_pos output for that k-mer
                     col= base_dict[line[i+m]] #Columns are in the order A, C, G, T
-                    true_l.append(mode)
                     u_score+= np.log10(u_arr[row, col])
                     b_score+= np.log10(b_arr[row, col])
-                    scores_l.append(b_score- u_score)
+                true_l.append(mode)
+                scores_l.append(b_score- u_score)
     return scores_l, true_l

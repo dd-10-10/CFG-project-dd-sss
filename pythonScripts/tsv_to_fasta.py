@@ -1,6 +1,3 @@
-'''
-    Convert all TSV files (in BED formatting) to FASTA format using hg38 genome
-'''
 from pathlib import Path
 from datetime import datetime
 import pybedtools
@@ -19,7 +16,10 @@ def tsv_to_fasta(in_tsv_path:Path, in_genome:Path) -> None:
     Returns:
         None
     '''
-    out_fa = in_tsv_path.parent
+    out_fa = in_tsv_path.parent # Output Path
+    if (out_fa / f"{in_tsv_path.stem}.fa").exists():
+        print((out_fa / f"{in_tsv_path.stem}.fa"), "already exists, skipping")
+        return
     df = pd.read_csv(in_tsv_path, sep="\t", dtype={'chr':str, 'start':int, 'end':int, "ATAC":str, 'CTCF':str, "REST":str, 'EP300':str})
     df['name'] = df['chr'] + ":" + df['start'].astype(str) + "-" + df['end'].astype(str) + "_" + df['ATAC'] + df['CTCF'] + df['REST'] + df['EP300']
     df = df[['chr', 'start', 'end', 'name']]
