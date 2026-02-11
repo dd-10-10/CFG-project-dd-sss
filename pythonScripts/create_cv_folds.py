@@ -2,7 +2,8 @@ from pathlib import Path
 import random
 import pandas as pd
 
-def cross_validate(in_tsv_path:Path, out_dir_path:Path, k:int, tf:str, random_state:int|None=None) -> list[str]:
+def cross_validate(in_tsv_path:Path, out_dir_path:Path, k:int, tf:str, random_state:int|None=None,
+                   force_recalculate: bool = False) -> list[str]:
     '''
     Create n-folds for cross-validation of the input TSV file and saves the folds to a specified directory.
 
@@ -12,9 +13,17 @@ def cross_validate(in_tsv_path:Path, out_dir_path:Path, k:int, tf:str, random_st
         k: Number of folds for cross-validation
         tf: Transcription factor to consider
         random_state: Random seed for reproducibility (default: None)
+        force_recalculate: Whether to rewrite exixting fasta files (Default: False)
     Returns:
         List containing names of all created files
     '''
+    
+    if not force_recalculate:
+        for fold in range(k):
+            fold_file = out_dir_path / f"{in_tsv_path.stem}_{tf}_{fold+1}.tsv"
+            if not fold_file.exists():
+                break
+    
     df = pd.read_csv(in_tsv_path, sep="\t", dtype={'chr':str, 'start':int, 'end':int, "ATAC":str, 'CTCF':str, "REST":str, 'EP300':str})
     # Separate Bound and Unbound regions
     df_bound = df[df[tf] == 'B'].reset_index(drop=True)
@@ -36,15 +45,17 @@ def cross_validate(in_tsv_path:Path, out_dir_path:Path, k:int, tf:str, random_st
 
     names= []
     for fold in range(k):
-        fold_b = df_bound[df_bound['fold'] == fold].drop(columns=['fold']).reset_index(drop=True)
-        fold_u = df_unbound[df_unbound['fold'] == fold].drop(columns=['fold']).reset_index(drop=True)
-        fold_df = pd.concat([fold_b, fold_u]) # Bound and Unbound in the same fold
         fold_file = out_dir_path / f"{in_tsv_path.stem}_{tf}_{fold+1}.tsv"
-        fold_df.to_csv(fold_file, sep="\t", index=False)
         names.append(Path(fold_file.name))
+        if not force_recalculate and fold_file.exists():
+            continue
+        fold_b = df_bound[df_bound['fold'] == fold].drop(columns=['fold'])
+        fold_u = df_unbound[df_unbound['fold'] == fold].drop(columns=['fold'])
+        fold_df = pd.concat([fold_b, fold_u], ignore_index=True) # Bound and Unbound in the same fold
+        fold_df.to_csv(fold_file, sep="\t", index=False)
     return names
 
-def main() -> None:
+def main():
     INPUT_TSV = Path("data/tsv/chr22_200bp_bins.tsv")
     OUTPUT_DIR = Path("data/testing")
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)

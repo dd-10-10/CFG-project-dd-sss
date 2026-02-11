@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 from globals import seq_to_pos, base_dict, tf_dict
 
-def markov(in_fasta_path: Path, out_dir_path: Path, m: int, tf: str) -> None:
+def markov(in_fasta_path: Path, out_dir_path: Path, m: int, tf: str, force_recalculate: bool = False) -> None:
     '''
     Create and save an unnormalised count matrix for a markov model of the specified order.
     
@@ -12,12 +12,13 @@ def markov(in_fasta_path: Path, out_dir_path: Path, m: int, tf: str) -> None:
         out_dir_path: Path to Directory to save matrix files 
         m: Order of the Markov model
         tf: Transciption Factor
-    
+        force_recalculate: Whether to recompute count matrices (Default: False)
     Outputs:
         None
     '''
-    if (out_dir_path / f"{in_fasta_path.stem}_u_{m}.npy").exists() and (out_dir_path / f"{in_fasta_path.stem}_b_{m}.npy").exists():
-        print(f"{in_fasta_path.stem}_u_{m}.npy, {in_fasta_path.stem}_b_{m}.npy exists, skipping")
+    uarr_path = (out_dir_path / f"{in_fasta_path.stem}_u_{m}.npy")
+    barr_path = (out_dir_path / f"{in_fasta_path.stem}_b_{m}.npy")
+    if (not force_recalculate) and uarr_path.exists() and barr_path.exists():
         return
     b_arr= np.zeros((4**m, 4))
     u_arr= np.zeros((4**m, 4))
@@ -35,8 +36,10 @@ def markov(in_fasta_path: Path, out_dir_path: Path, m: int, tf: str) -> None:
                         u_arr[row, col]+= 1
                     else:
                         b_arr[row, col]+= 1
-    np.save(out_dir_path / f"{in_fasta_path.stem}_u_{m}.npy", u_arr)
-    np.save(out_dir_path / f"{in_fasta_path.stem}_b_{m}.npy", b_arr)
+    if not uarr_path.exists():
+        np.save(uarr_path, u_arr)
+    if not barr_path.exists():
+        np.save(barr_path, b_arr)
     return
 
 def main():

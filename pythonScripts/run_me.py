@@ -11,7 +11,8 @@ from markov_mle import markov
 from markov_score import score
 from tsv_to_fasta import tsv_to_fasta
 
-def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: int, k: int, tf: str) -> None:
+def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: int, k: int, tf: str,
+                   force_recalculate: bool = False, store_files: bool = True) -> None:
     '''
     Takes an input tsv file of sequence coordinates, use a markov model,
     perform cross validation and plot ROC and Precision-Recall curves,
@@ -24,6 +25,8 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
         m: Order of the markov model
         k: Number of folds for Cross Validation
         tf: Transcription Factor to consider
+        force_recalculate: Whether to recreate fasta files and recompute count matrices (Default: False)
+        store_files: Whether to keep to delete intermediate fasta and matrix files created (Default: False)
     '''
     out_dir_path.mkdir(parents=True, exist_ok=True) # Create the folder if it does not exist
     names = cross_validate(in_tsv_path, out_dir_path, k, tf, random_state=42) # Names of fold fasta files created
@@ -43,10 +46,8 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
         u_arr= u_new- np.load(out_dir_path / f"{unname.stem}_u_{m}.npy")
         b_arr += pseudocounts
         u_arr += pseudocounts
-        b_norms = np.linalg.norm(b_arr, axis=0, keepdims=True) # Normalizing each row
-        b_arr /= b_norms
-        u_norms = np.linalg.norm(u_arr, axis=0, keepdims=True)
-        u_arr /= u_norms
+        b_arr /= b_arr.sum(axis=1, keepdims=True)
+        u_arr /= u_arr.sum(axis=1, keepdims=True)
         
         scores, true= score(out_dir_path / f"{unname.stem}.fa", b_arr, u_arr, m, tf) # Get log-odds scores for each fold
         plt.hist(scores, bins=range(-300, 300, 1))
@@ -69,11 +70,15 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
     print("PRC average area= ", prc_avg)
     print("ROC areas= ", roc_auc_list)
     print("PRC areas= ", prc_auc_list)
+    
+    if not store_files:
+        import shutil
+        shutil.rmtree(out_dir_path)
 
 def main():
     in_tsv_path = Path('data/tsv/chr22_200bp_bins.tsv')
     out_path = Path('data/temp')
-    markov_predict(in_tsv_path,out_path, pseudocounts=0.1, m=1, k=3, tf='CTCF')
+    markov_predict(in_tsv_path,out_path, pseudocounts=1, m=2, k=3, tf='CTCF')
 
 if __name__ == '__main__':
     main()
