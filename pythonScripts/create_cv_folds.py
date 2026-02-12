@@ -19,10 +19,8 @@ def cross_validate(in_tsv_path:Path, out_dir_path:Path, k:int, tf:str, random_st
     '''
     
     if not force_recalculate:
-        for fold in range(k):
-            fold_file = out_dir_path / f"{in_tsv_path.stem}_{tf}_{fold+1}.tsv"
-            if not fold_file.exists():
-                break
+        if all([(out_dir_path / f"{in_tsv_path.stem}_{tf}_{i+1}.tsv").exists() for i in range(k)]):
+            return [f"{in_tsv_path.stem}_{tf}_{i+1}" for i in range(k)]
     
     df = pd.read_csv(in_tsv_path, sep="\t", dtype={'chr':str, 'start':int, 'end':int, "ATAC":str, 'CTCF':str, "REST":str, 'EP300':str})
     # Separate Bound and Unbound regions
@@ -36,19 +34,16 @@ def cross_validate(in_tsv_path:Path, out_dir_path:Path, k:int, tf:str, random_st
     fold_size_u = len_u // k
     indices_b = list(range(k))*fold_size_b + list(range(k))[:len_b % k]
     indices_u = list(range(k))*fold_size_u + list(range(k))[:len_u % k]
-    if random_state is not None:
-        random.seed(random_state)
-    indices_b = random.sample(indices_b, len_b)
-    indices_u = random.sample(indices_u, len_u)
+    rng = random.Random(random_state)
+    indices_b = rng.sample(indices_b, len_b)
+    indices_u = rng.sample(indices_u, len_u)
     df_bound['fold'] = indices_b
     df_unbound['fold'] = indices_u
 
     names= []
     for fold in range(k):
         fold_file = out_dir_path / f"{in_tsv_path.stem}_{tf}_{fold+1}.tsv"
-        names.append(Path(fold_file.name))
-        if not force_recalculate and fold_file.exists():
-            continue
+        names.append(fold_file.stem)
         fold_b = df_bound[df_bound['fold'] == fold].drop(columns=['fold'])
         fold_u = df_unbound[df_unbound['fold'] == fold].drop(columns=['fold'])
         fold_df = pd.concat([fold_b, fold_u], ignore_index=True) # Bound and Unbound in the same fold

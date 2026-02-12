@@ -36,10 +36,8 @@ def markov(in_fasta_path: Path, out_dir_path: Path, m: int, tf: str, force_recal
                         u_arr[row, col]+= 1
                     else:
                         b_arr[row, col]+= 1
-    if not uarr_path.exists():
-        np.save(uarr_path, u_arr)
-    if not barr_path.exists():
-        np.save(barr_path, b_arr)
+    np.save(uarr_path, u_arr)
+    np.save(barr_path, b_arr)
     return
 
 def main():
