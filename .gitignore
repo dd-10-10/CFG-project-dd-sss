@@ -1,3 +1,4 @@
 data/hg38*
 pythonScripts/__pycache__/*
 data/temp/*
+data/Output/*
