@@ -1,0 +1,32 @@
+14-02-26 17:39:42 - pc = 1, m = 4, k = 5, tf = CTCF
+14-02-26 17:39:42 - 	Creating Folds
+14-02-26 17:39:42 - 	Reading MLE matrices
+14-02-26 17:39:42 - 		Converting file 1 to fasta
+14-02-26 17:39:42 - 		Calculating MLE for file 1
+14-02-26 17:39:42 - 		Converting file 2 to fasta
+14-02-26 17:39:42 - 		Calculating MLE for file 2
+14-02-26 17:39:42 - 		Converting file 3 to fasta
+14-02-26 17:39:42 - 		Calculating MLE for file 3
+14-02-26 17:39:43 - 		Converting file 4 to fasta
+14-02-26 17:39:43 - 		Calculating MLE for file 4
+14-02-26 17:39:43 - 		Converting file 5 to fasta
+14-02-26 17:39:43 - 		Calculating MLE for file 5
+14-02-26 17:39:43 - 	Starting Calculation and Inference
+14-02-26 17:39:43 - 		Starting fold 1
+14-02-26 17:39:43 - 			Calculating Scores
+14-02-26 17:39:56 - 			Plotting Evaluation Metrics
+14-02-26 17:39:57 - 		Starting fold 2
+14-02-26 17:39:57 - 			Calculating Scores
+14-02-26 17:40:11 - 			Plotting Evaluation Metrics
+14-02-26 17:40:11 - 		Starting fold 3
+14-02-26 17:40:11 - 			Calculating Scores
+14-02-26 17:40:24 - 			Plotting Evaluation Metrics
+14-02-26 17:40:25 - 		Starting fold 4
+14-02-26 17:40:25 - 			Calculating Scores
+14-02-26 17:40:38 - 			Plotting Evaluation Metrics
+14-02-26 17:40:39 - 		Starting fold 5
+14-02-26 17:40:39 - 			Calculating Scores
+14-02-26 17:40:52 - 			Plotting Evaluation Metrics
+14-02-26 17:40:52 - 	Averaging across folds
+14-02-26 17:40:52 - 	DELETING TEMP FILES
+14-02-26 17:40:52 - 	Done!

@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import logging
 import json
+import argparse
 
 from sklearn.metrics import roc_curve, precision_recall_curve, auc
 
@@ -38,7 +39,7 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
     output_dir.mkdir(parents=True, exist_ok=True) # Create the folder if it does not exist
     logging.basicConfig(
         level=logging.INFO,
-        filename = output_dir.parent / 'logs.txt',
+        filename = output_dir/ 'logs.txt',
         format='%(asctime)s - %(message)s',
         datefmt='%d-%m-%y %H:%M:%S',
         filemode = 'w'
@@ -135,10 +136,26 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
     return
 
 def main():
-    in_tsv_path = Path('data/tsv/chr4_200bp_bins.tsv')
-    out_path = Path('data/temp')
-    for m in range(0,11):
-        markov_predict(in_tsv_path,out_path, pseudocounts=1, m=m, k=5, tf='CTCF', force_recalculate=False)
+    parser= argparse.ArgumentParser(prog= "pythonScripts/run_me.py",
+                description= "A program to predict whether a TF will bind to a sequence")
+    parser.add_argument("input", help= "path to input tsv file")
+    parser.add_argument("out", help= "path to save output files to")
+    parser.add_argument("m", type= int, help= "order of Markov model to train")
+    parser.add_argument("k", type= int, help= "number of folds for cross-validation")
+    parser.add_argument("tf", choices= ["CTCF", "EP300", "REST"], help= "transcription factor")
+    parser.add_argument("-pc", type= float, default= 1, help= "specify pseudocounts (default= 1)")
+    parser.add_argument("--fr", action= "store_false", help= "force recalculation and overwriting of existing MLE matrices and fasta files")
+    parser.add_argument("--d", action= "store_false", help= "delete the temp folder once the program execution is complete")
+    args= parser.parse_args()
+    in_tsv_path = Path(args.input)
+    out_path = Path(args.out)
+    m= args.m
+    k= args.k
+    tf= args.tf
+    pc= args.pc
+    fr= args.fr
+    s= args.d
+    markov_predict(in_tsv_path, out_path, pseudocounts= pc, m= m, k= k, tf= tf, force_recalculate= fr, store_files= s)
 
 if __name__ == '__main__':
     main()
