@@ -33,12 +33,12 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
     Returns:
         None
     '''
-    output_dir = (out_dir_path.parent / "Output")
+    output_dir = (out_dir_path.parent / f"Output_{m}_{k}_{tf}")
     out_dir_path.mkdir(parents=True, exist_ok=True) # Create the folder if it does not exist
     output_dir.mkdir(parents=True, exist_ok=True) # Create the folder if it does not exist
     logging.basicConfig(
         level=logging.INFO,
-        filename = output_dir / 'logs.txt',
+        filename = output_dir.parent / 'logs.txt',
         format='%(asctime)s - %(message)s',
         datefmt='%d-%m-%y %H:%M:%S',
         filemode = 'w'
@@ -135,10 +135,10 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
     return
 
 def main():
-    in_tsv_path = Path('data/tsv/chr1_200bp_bins.tsv')
+    in_tsv_path = Path('data/tsv/chr4_200bp_bins.tsv')
     out_path = Path('data/temp')
-    for m in range(0,1):
-        markov_predict(in_tsv_path,out_path, pseudocounts=1, m=m, k=3, tf='CTCF', force_recalculate=False)
+    for m in range(0,11):
+        markov_predict(in_tsv_path,out_path, pseudocounts=1, m=m, k=5, tf='CTCF', force_recalculate=False)
 
 if __name__ == '__main__':
     main()

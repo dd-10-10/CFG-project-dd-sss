@@ -34,9 +34,9 @@ def score(in_fasta_path: str, b_arr: list[np.ndarray], u_arr: list[np.ndarray], 
                     u_score+= np.log10(u_arr[-1][row, col])
                     b_score+= np.log10(b_arr[-1][row, col])
                     if i< m:
-                        hist= line[:i+1]
+                        hist= line[:i]
                         row= seq_to_pos(hist)
-                        col= base_dict[line[i+1]]
+                        col= base_dict[line[i]]
                         u_score+= np.log10(u_arr[i][row, col])
                         b_score+= np.log10(b_arr[i][row, col])
                 true_l.append(mode)
