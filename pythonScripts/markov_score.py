@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 from globals import base_dict, tf_dict, seq_to_pos
 
-def score(in_fasta_path: str, b_arr: np.ndarray, u_arr: np.ndarray, m: int, tf: str) -> tuple[list[float], list[str]]:
+def score(in_fasta_path: str, b_arr: list[np.ndarray], u_arr: list[np.ndarray], m: int, tf: str) -> tuple[list[float], list[str]]:
     '''
     Calculate log-odds score for sequences in a fasta file using transition probability matrices
     
@@ -31,8 +31,14 @@ def score(in_fasta_path: str, b_arr: np.ndarray, u_arr: np.ndarray, m: int, tf: 
                     hist= line[i:i+m]
                     row= seq_to_pos(hist) #Row index of each k-mer in the arrays is the seq_to_pos output for that k-mer
                     col= base_dict[line[i+m]] #Columns are in the order A, C, G, T
-                    u_score+= np.log10(u_arr[row, col])
-                    b_score+= np.log10(b_arr[row, col])
+                    u_score+= np.log10(u_arr[-1][row, col])
+                    b_score+= np.log10(b_arr[-1][row, col])
+                    if i< m:
+                        hist= line[:i+1]
+                        row= seq_to_pos(hist)
+                        col= base_dict[line[i+1]]
+                        u_score+= np.log10(u_arr[i][row, col])
+                        b_score+= np.log10(b_arr[i][row, col])
                 true_l.append(mode)
                 scores_l.append(b_score- u_score)
     return scores_l, true_l

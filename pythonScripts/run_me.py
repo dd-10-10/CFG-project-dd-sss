@@ -48,36 +48,44 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
     names = cross_validate(in_tsv_path, out_dir_path, k, tf, random_state=42) # Names of fold fasta files created
 
     logging.info("\tReading MLE matrices")
-    b_new= np.zeros((4**m, 4))
-    u_new= np.zeros((4**m, 4))
+    b_new= [np.zeros((4**i, 4)) for i in range(m+1)]
+    u_new= [np.zeros((4**i, 4)) for i in range(m+1)]
     for index, name in enumerate(names):
         logging.info(f"\t\tConverting file {index+1} to fasta")
         tsv_to_fasta(out_dir_path / f"{name}.tsv") # Extract sequence using genome file
         logging.info(f"\t\tCalculating MLE for file {index+1}")
         markov(out_dir_path / f"{name}.fa", out_dir_path, m, tf) # Calculate MLE (counts) for each fasta file
-        b_new+= np.load(out_dir_path / f"{name}_b_{m}.npy")
-        u_new+= np.load(out_dir_path / f"{name}_u_{m}.npy")
-    
+        b_new[m]+= np.load(out_dir_path / f"{name}_b_{m}.npy")
+        u_new[m]+= np.load(out_dir_path / f"{name}_u_{m}.npy")
+        for i in range(m):
+            markov(out_dir_path / f"{name}.fa", out_dir_path, i, tf)
+            b_new[i]+= np.load(out_dir_path / f"{name}_b_{i}.npy")
+            u_new[i]+= np.load(out_dir_path / f"{name}_u_{i}.npy")    
+
     roc_auc_list= []
     prc_auc_list= []
     logging.info("\tStarting Calculation and Inference")
     for fold_index, unname in enumerate(names):
         logging.info(f"\t\tStarting fold {fold_index+1}")
-        b_arr= b_new- np.load(out_dir_path / f"{unname}_b_{m}.npy") # Get MLE matrix for (k-1) folds
-        u_arr= u_new- np.load(out_dir_path / f"{unname}_u_{m}.npy")
-        b_arr += pseudocounts
-        u_arr += pseudocounts
-        b_arr /= b_arr.sum(axis=1, keepdims=True)
-        u_arr /= u_arr.sum(axis=1, keepdims=True)
+        b_arr= [np.zeros((4**i, 4)) for i in range(m+1)]
+        u_arr= [np.zeros((4**i, 4)) for i in range(m+1)]
+        for i in range(m+1):
+            b_arr[i]= b_new[i]- np.load(out_dir_path / f"{unname}_b_{i}.npy") # Get MLE matrix for (k-1) folds
+            u_arr[i]= u_new[i]- np.load(out_dir_path / f"{unname}_u_{i}.npy")
+            b_arr[i] += pseudocounts
+            u_arr[i] += pseudocounts
+            b_arr[i] /= b_arr[i].sum(axis=1, keepdims=True)
+            u_arr[i] /= u_arr[i].sum(axis=1, keepdims=True)
         
         logging.info(f"\t\t\tCalculating Scores")
-        json_path = output_dir / f"Scores_{in_tsv_path.stem}_m={m}_k={k}_tf={tf}.json"
+        json_path = output_dir / f"Scores_{in_tsv_path.stem}_m={m}_fold={fold_index}of{k}_tf={tf}.json"
         if (json_path).exists() and not force_recalculate:
             with open(json_path, 'r') as f:
                 data = json.load(f)
                 scores = data['scores']; true = data['true']
                 fpr = data['fpr']; tpr = data['tpr']
                 prec = data['prec']; rec = data['rec']
+                prop = true.count('B')/len(true)
         else:
             scores, true = score(out_dir_path / f"{unname}.fa", b_arr, u_arr, m, tf) # Get log-odds scores for each fold
             prop = true.count('B')/len(true)
@@ -98,7 +106,7 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
         plt.title(f"ROC Curve\ntf={tf}, m={m}, fold={fold_index+1}/{k}")
         plt.xlabel(r"False Positive Rate $(\frac{FP}{FP+TN})$")
         plt.xlabel(r"True Positive Rate $(\frac{TP}{TP+FN})$")
-        plt.savefig(output_dir / f"ROC_{in_tsv_path.stem}_m={m}_fold={fold_index+1}-{k}_tf={tf}.png")
+        plt.savefig(output_dir / f"ROC_{in_tsv_path.stem}_m={m}_fold={fold_index+1}of{k}_tf={tf}.png")
         plt.close()
         
         plt.figure(figsize=(8,8), dpi=200)
@@ -107,7 +115,7 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
         plt.title(f"Precision-Recall Curve\ntf={tf}, m={m}, fold={fold_index+1}/{k}")
         plt.xlabel(r"Recall $(\frac{TP}{TP+FN})$")
         plt.ylabel(r"Precision $(\frac{TP}{TP+FP})$")
-        plt.savefig(output_dir / f"PRC_{in_tsv_path.stem}_m={m}_fold={fold_index+1}-{k}_tf={tf}.png")
+        plt.savefig(output_dir / f"PRC_{in_tsv_path.stem}_m={m}_fold={fold_index+1}of{k}_tf={tf}.png")
         plt.close()
     
     logging.info("\tAveraging across folds")
@@ -130,7 +138,7 @@ def main():
     in_tsv_path = Path('data/tsv/chr1_200bp_bins.tsv')
     out_path = Path('data/temp')
     for m in range(0,1):
-        markov_predict(in_tsv_path,out_path, pseudocounts=1, m=m, k=3, tf='CTCF', force_recalculate=True)
+        markov_predict(in_tsv_path,out_path, pseudocounts=1, m=m, k=3, tf='CTCF', force_recalculate=False)
 
 if __name__ == '__main__':
     main()
