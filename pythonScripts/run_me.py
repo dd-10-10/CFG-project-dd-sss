@@ -2,9 +2,10 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
-import logging
 import json
 import argparse
+import logging
+import tracemalloc
 
 from sklearn.metrics import roc_curve, precision_recall_curve, auc
 
@@ -14,7 +15,7 @@ from markov_mle import markov
 from markov_score import score
 from tsv_to_fasta import tsv_to_fasta
 
-def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: int, k: int, tf: str,
+def markov_predict(in_tsv_path: Path, output_dir: Path, pseudocounts:float, m: int, k: int, tf: str,
                    force_recalculate: bool = False, store_files: bool = True) -> None:
     '''
     Takes an input tsv file of sequence coordinates, use a markov model,
@@ -23,7 +24,7 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
     
     Arguments:
         in_tsv_path: Path to input tsv
-        out_dir_path: Path to a directory to store intermediate files
+        output_dir: Path to a directory to store output files
         pseudocount: value of pseudocount for calculating MAP estimate
         m: Order of the markov model
         k: Number of folds for Cross Validation
@@ -34,34 +35,28 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
     Returns:
         None
     '''
-    output_dir = (out_dir_path.parent / f"Output_{m}_{k}_{tf}")
-    out_dir_path.mkdir(parents=True, exist_ok=True) # Create the folder if it does not exist
+    temp_dir_path = (output_dir / f"TempFiles_{in_tsv_path.stem.split('_')[0]}_{m}_{k}_{tf}")
+    output_dir = output_dir / "Output"
+    temp_dir_path.mkdir(parents=True, exist_ok=True) # Create the folder if it does not exist
     output_dir.mkdir(parents=True, exist_ok=True) # Create the folder if it does not exist
-    logging.basicConfig(
-        level=logging.INFO,
-        filename = output_dir/ 'logs.txt',
-        format='%(asctime)s - %(message)s',
-        datefmt='%d-%m-%y %H:%M:%S',
-        filemode = 'w'
-    )
     logging.info(f"pc = {pseudocounts}, m = {m}, k = {k}, tf = {tf}")
     logging.info("\tCreating Folds")
-    names = cross_validate(in_tsv_path, out_dir_path, k, tf, random_state=42) # Names of fold fasta files created
+    names = cross_validate(in_tsv_path, temp_dir_path, k, tf) # Names of fold fasta files created
 
     logging.info("\tReading MLE matrices")
     b_new= [np.zeros((4**i, 4)) for i in range(m+1)]
     u_new= [np.zeros((4**i, 4)) for i in range(m+1)]
     for index, name in enumerate(names):
         logging.info(f"\t\tConverting file {index+1} to fasta")
-        tsv_to_fasta(out_dir_path / f"{name}.tsv") # Extract sequence using genome file
+        tsv_to_fasta(temp_dir_path / f"{name}.tsv") # Extract sequence using genome file
         logging.info(f"\t\tCalculating MLE for file {index+1}")
-        markov(out_dir_path / f"{name}.fa", out_dir_path, m, tf) # Calculate MLE (counts) for each fasta file
-        b_new[m]+= np.load(out_dir_path / f"{name}_b_{m}.npy")
-        u_new[m]+= np.load(out_dir_path / f"{name}_u_{m}.npy")
+        markov(temp_dir_path / f"{name}.fa", temp_dir_path, m, tf) # Calculate MLE (counts) for each fasta file
+        b_new[m]+= np.load(temp_dir_path / f"{name}_b_{m}.npy")
+        u_new[m]+= np.load(temp_dir_path / f"{name}_u_{m}.npy")
         for i in range(m):
-            markov(out_dir_path / f"{name}.fa", out_dir_path, i, tf)
-            b_new[i]+= np.load(out_dir_path / f"{name}_b_{i}.npy")
-            u_new[i]+= np.load(out_dir_path / f"{name}_u_{i}.npy")    
+            markov(temp_dir_path / f"{name}.fa", temp_dir_path, i, tf)
+            b_new[i]+= np.load(temp_dir_path / f"{name}_b_{i}.npy")
+            u_new[i]+= np.load(temp_dir_path / f"{name}_u_{i}.npy")
 
     roc_auc_list= []
     prc_auc_list= []
@@ -71,15 +66,15 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
         b_arr= [np.zeros((4**i, 4)) for i in range(m+1)]
         u_arr= [np.zeros((4**i, 4)) for i in range(m+1)]
         for i in range(m+1):
-            b_arr[i]= b_new[i]- np.load(out_dir_path / f"{unname}_b_{i}.npy") # Get MLE matrix for (k-1) folds
-            u_arr[i]= u_new[i]- np.load(out_dir_path / f"{unname}_u_{i}.npy")
+            b_arr[i]= b_new[i]- np.load(temp_dir_path / f"{unname}_b_{i}.npy") # Get MLE matrix for (k-1) folds
+            u_arr[i]= u_new[i]- np.load(temp_dir_path / f"{unname}_u_{i}.npy")
             b_arr[i] += pseudocounts
             u_arr[i] += pseudocounts
             b_arr[i] /= b_arr[i].sum(axis=1, keepdims=True)
             u_arr[i] /= u_arr[i].sum(axis=1, keepdims=True)
         
         logging.info(f"\t\t\tCalculating Scores")
-        json_path = output_dir / f"Scores_{in_tsv_path.stem}_m={m}_fold={fold_index}of{k}_tf={tf}.json"
+        json_path = output_dir / f"Scores_{in_tsv_path.stem}_m={m}_fold={fold_index+1}of{k}_tf={tf}.json"
         if (json_path).exists() and not force_recalculate:
             with open(json_path, 'r') as f:
                 data = json.load(f)
@@ -88,7 +83,7 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
                 prec = data['prec']; rec = data['rec']
                 prop = true.count('B')/len(true)
         else:
-            scores, true = score(out_dir_path / f"{unname}.fa", b_arr, u_arr, m, tf) # Get log-odds scores for each fold
+            scores, true = score(temp_dir_path / f"{unname}.fa", b_arr, u_arr, m, tf) # Get log-odds scores for each fold
             prop = true.count('B')/len(true)
             fpr, tpr, thresh1= roc_curve(true, scores, pos_label="B")
             prec, rec, thresh2= precision_recall_curve(true, scores, pos_label="B")
@@ -131,7 +126,7 @@ def markov_predict(in_tsv_path: str, out_dir_path: str, pseudocounts:float, m: i
     if not store_files:
         logging.info("\tDELETING TEMP FILES")
         import shutil
-        shutil.rmtree(out_dir_path)
+        shutil.rmtree(temp_dir_path)
     logging.info("\tDone!")
     return
 
@@ -144,8 +139,8 @@ def main():
     parser.add_argument("k", type= int, help= "number of folds for cross-validation")
     parser.add_argument("tf", choices= ["CTCF", "EP300", "REST"], help= "transcription factor")
     parser.add_argument("-pc", type= float, default= 1, help= "specify pseudocounts (default= 1)")
-    parser.add_argument("--fr", action= "store_false", help= "force recalculation and overwriting of existing MLE matrices and fasta files")
-    parser.add_argument("--d", action= "store_false", help= "delete the temp folder once the program execution is complete")
+    parser.add_argument("--force_recalculate", action= "store_false", help= "force recalculation and overwriting of existing MLE matrices and fasta files")
+    parser.add_argument("--delete_temp", action= "store_false", help= "delete the temp folder once the program execution is complete")
     args= parser.parse_args()
     in_tsv_path = Path(args.input)
     out_path = Path(args.out)
@@ -153,9 +148,23 @@ def main():
     k= args.k
     tf= args.tf
     pc= args.pc
-    fr= args.fr
-    s= args.d
+    fr= args.force_recalculate
+    s= args.delete_temp
+
+    out_path.mkdir(parents=True, exist_ok=True) # Create the folder if it does not exist
+    logging.basicConfig(
+        level=logging.INFO,
+        filename = out_path / 'logs.txt',
+        format='%(asctime)s - %(message)s',
+        datefmt='%d-%m-%y %H:%M:%S',
+        filemode = 'a'
+    )
+    
+    tracemalloc.start()
     markov_predict(in_tsv_path, out_path, pseudocounts= pc, m= m, k= k, tf= tf, force_recalculate= fr, store_files= s)
+    _, peak = tracemalloc.get_traced_memory()
+    tracemalloc.stop()
+    logging.info(f"\tPeak Memory Usage = {peak} bytes")
 
 if __name__ == '__main__':
     main()
