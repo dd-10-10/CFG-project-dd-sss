@@ -1,0 +1,1089 @@
+15-02-26 17:34:52 - pc = 1, m = 0, k = 5, tf = CTCF
+15-02-26 17:34:52 - 	Creating Folds
+15-02-26 17:34:56 - 	Reading MLE matrices
+15-02-26 17:34:56 - 		Converting file 1 to fasta
+15-02-26 17:35:34 - 		Calculating MLE for file 1
+15-02-26 17:35:58 - 		Converting file 2 to fasta
+15-02-26 17:36:30 - 		Calculating MLE for file 2
+15-02-26 17:36:54 - 		Converting file 3 to fasta
+15-02-26 17:37:28 - 		Calculating MLE for file 3
+15-02-26 17:37:53 - 		Converting file 4 to fasta
+15-02-26 17:38:26 - 		Calculating MLE for file 4
+15-02-26 17:38:50 - 		Converting file 5 to fasta
+15-02-26 17:39:27 - 		Calculating MLE for file 5
+15-02-26 17:39:52 - 	Starting Calculation and Inference
+15-02-26 17:39:52 - 		Starting fold 1
+15-02-26 17:39:52 - 			Calculating Scores
+15-02-26 17:40:37 - 			Plotting Evaluation Metrics
+15-02-26 17:40:38 - 		Starting fold 2
+15-02-26 17:40:38 - 			Calculating Scores
+15-02-26 17:41:22 - 			Plotting Evaluation Metrics
+15-02-26 17:41:22 - 		Starting fold 3
+15-02-26 17:41:22 - 			Calculating Scores
+15-02-26 17:42:06 - 			Plotting Evaluation Metrics
+15-02-26 17:42:06 - 		Starting fold 4
+15-02-26 17:42:06 - 			Calculating Scores
+15-02-26 17:42:50 - 			Plotting Evaluation Metrics
+15-02-26 17:42:50 - 		Starting fold 5
+15-02-26 17:42:50 - 			Calculating Scores
+15-02-26 17:43:34 - 			Plotting Evaluation Metrics
+15-02-26 17:43:34 - 	Averaging across folds
+15-02-26 17:43:34 - 	DELETING TEMP FILES
+15-02-26 17:43:34 - 	Done!
+15-02-26 17:43:34 - 	Peak Memory Usage = 56782753 bytes
+15-02-26 17:43:36 - pc = 1, m = 0, k = 5, tf = REST
+15-02-26 17:43:36 - 	Creating Folds
+15-02-26 17:43:40 - 	Reading MLE matrices
+15-02-26 17:43:40 - 		Converting file 1 to fasta
+15-02-26 17:44:13 - 		Calculating MLE for file 1
+15-02-26 17:44:37 - 		Converting file 2 to fasta
+15-02-26 17:45:12 - 		Calculating MLE for file 2
+15-02-26 17:45:37 - 		Converting file 3 to fasta
+15-02-26 17:46:14 - 		Calculating MLE for file 3
+15-02-26 17:46:38 - 		Converting file 4 to fasta
+15-02-26 17:47:16 - 		Calculating MLE for file 4
+15-02-26 17:47:40 - 		Converting file 5 to fasta
+15-02-26 17:48:14 - 		Calculating MLE for file 5
+15-02-26 17:48:38 - 	Starting Calculation and Inference
+15-02-26 17:48:38 - 		Starting fold 1
+15-02-26 17:48:38 - 			Calculating Scores
+15-02-26 17:49:22 - 			Plotting Evaluation Metrics
+15-02-26 17:49:23 - 		Starting fold 2
+15-02-26 17:49:23 - 			Calculating Scores
+15-02-26 17:50:07 - 			Plotting Evaluation Metrics
+15-02-26 17:50:07 - 		Starting fold 3
+15-02-26 17:50:07 - 			Calculating Scores
+15-02-26 17:50:51 - 			Plotting Evaluation Metrics
+15-02-26 17:50:51 - 		Starting fold 4
+15-02-26 17:50:51 - 			Calculating Scores
+15-02-26 17:51:35 - 			Plotting Evaluation Metrics
+15-02-26 17:51:35 - 		Starting fold 5
+15-02-26 17:51:35 - 			Calculating Scores
+15-02-26 17:52:19 - 			Plotting Evaluation Metrics
+15-02-26 17:52:19 - 	Averaging across folds
+15-02-26 17:52:19 - 	DELETING TEMP FILES
+15-02-26 17:52:19 - 	Done!
+15-02-26 17:52:19 - 	Peak Memory Usage = 56782773 bytes
+15-02-26 17:52:21 - pc = 1, m = 0, k = 5, tf = EP300
+15-02-26 17:52:21 - 	Creating Folds
+15-02-26 17:52:25 - 	Reading MLE matrices
+15-02-26 17:52:25 - 		Converting file 1 to fasta
+15-02-26 17:52:58 - 		Calculating MLE for file 1
+15-02-26 17:53:23 - 		Converting file 2 to fasta
+15-02-26 17:53:58 - 		Calculating MLE for file 2
+15-02-26 17:54:23 - 		Converting file 3 to fasta
+15-02-26 17:54:56 - 		Calculating MLE for file 3
+15-02-26 17:55:21 - 		Converting file 4 to fasta
+15-02-26 17:55:56 - 		Calculating MLE for file 4
+15-02-26 17:56:21 - 		Converting file 5 to fasta
+15-02-26 17:56:54 - 		Calculating MLE for file 5
+15-02-26 17:57:18 - 	Starting Calculation and Inference
+15-02-26 17:57:18 - 		Starting fold 1
+15-02-26 17:57:18 - 			Calculating Scores
+15-02-26 17:58:02 - 			Plotting Evaluation Metrics
+15-02-26 17:58:03 - 		Starting fold 2
+15-02-26 17:58:03 - 			Calculating Scores
+15-02-26 17:58:47 - 			Plotting Evaluation Metrics
+15-02-26 17:58:47 - 		Starting fold 3
+15-02-26 17:58:47 - 			Calculating Scores
+15-02-26 17:59:31 - 			Plotting Evaluation Metrics
+15-02-26 17:59:31 - 		Starting fold 4
+15-02-26 17:59:31 - 			Calculating Scores
+15-02-26 18:00:15 - 			Plotting Evaluation Metrics
+15-02-26 18:00:15 - 		Starting fold 5
+15-02-26 18:00:15 - 			Calculating Scores
+15-02-26 18:00:59 - 			Plotting Evaluation Metrics
+15-02-26 18:00:59 - 	Averaging across folds
+15-02-26 18:00:59 - 	DELETING TEMP FILES
+15-02-26 18:01:00 - 	Done!
+15-02-26 18:01:00 - 	Peak Memory Usage = 56782846 bytes
+15-02-26 18:01:01 - pc = 1, m = 1, k = 5, tf = CTCF
+15-02-26 18:01:01 - 	Creating Folds
+15-02-26 18:01:05 - 	Reading MLE matrices
+15-02-26 18:01:05 - 		Converting file 1 to fasta
+15-02-26 18:01:39 - 		Calculating MLE for file 1
+15-02-26 18:02:31 - 		Converting file 2 to fasta
+15-02-26 18:03:04 - 		Calculating MLE for file 2
+15-02-26 18:03:55 - 		Converting file 3 to fasta
+15-02-26 18:04:27 - 		Calculating MLE for file 3
+15-02-26 18:05:18 - 		Converting file 4 to fasta
+15-02-26 18:05:51 - 		Calculating MLE for file 4
+15-02-26 18:06:42 - 		Converting file 5 to fasta
+15-02-26 18:07:14 - 		Calculating MLE for file 5
+15-02-26 18:08:06 - 	Starting Calculation and Inference
+15-02-26 18:08:06 - 		Starting fold 1
+15-02-26 18:08:06 - 			Calculating Scores
+15-02-26 18:08:52 - 			Plotting Evaluation Metrics
+15-02-26 18:08:53 - 		Starting fold 2
+15-02-26 18:08:53 - 			Calculating Scores
+15-02-26 18:09:39 - 			Plotting Evaluation Metrics
+15-02-26 18:09:39 - 		Starting fold 3
+15-02-26 18:09:39 - 			Calculating Scores
+15-02-26 18:10:25 - 			Plotting Evaluation Metrics
+15-02-26 18:10:26 - 		Starting fold 4
+15-02-26 18:10:26 - 			Calculating Scores
+15-02-26 18:11:12 - 			Plotting Evaluation Metrics
+15-02-26 18:11:12 - 		Starting fold 5
+15-02-26 18:11:12 - 			Calculating Scores
+15-02-26 18:11:58 - 			Plotting Evaluation Metrics
+15-02-26 18:11:58 - 	Averaging across folds
+15-02-26 18:11:58 - 	DELETING TEMP FILES
+15-02-26 18:11:59 - 	Done!
+15-02-26 18:11:59 - 	Peak Memory Usage = 56782253 bytes
+15-02-26 18:12:01 - pc = 1, m = 1, k = 5, tf = REST
+15-02-26 18:12:01 - 	Creating Folds
+15-02-26 18:12:05 - 	Reading MLE matrices
+15-02-26 18:12:05 - 		Converting file 1 to fasta
+15-02-26 18:12:37 - 		Calculating MLE for file 1
+15-02-26 18:13:28 - 		Converting file 2 to fasta
+15-02-26 18:14:03 - 		Calculating MLE for file 2
+15-02-26 18:14:54 - 		Converting file 3 to fasta
+15-02-26 18:15:27 - 		Calculating MLE for file 3
+15-02-26 18:16:18 - 		Converting file 4 to fasta
+15-02-26 18:16:51 - 		Calculating MLE for file 4
+15-02-26 18:17:42 - 		Converting file 5 to fasta
+15-02-26 18:18:15 - 		Calculating MLE for file 5
+15-02-26 18:19:06 - 	Starting Calculation and Inference
+15-02-26 18:19:06 - 		Starting fold 1
+15-02-26 18:19:06 - 			Calculating Scores
+15-02-26 18:19:53 - 			Plotting Evaluation Metrics
+15-02-26 18:19:53 - 		Starting fold 2
+15-02-26 18:19:53 - 			Calculating Scores
+15-02-26 18:20:40 - 			Plotting Evaluation Metrics
+15-02-26 18:20:41 - 		Starting fold 3
+15-02-26 18:20:41 - 			Calculating Scores
+15-02-26 18:21:28 - 			Plotting Evaluation Metrics
+15-02-26 18:21:28 - 		Starting fold 4
+15-02-26 18:21:28 - 			Calculating Scores
+15-02-26 18:22:15 - 			Plotting Evaluation Metrics
+15-02-26 18:22:15 - 		Starting fold 5
+15-02-26 18:22:15 - 			Calculating Scores
+15-02-26 18:23:02 - 			Plotting Evaluation Metrics
+15-02-26 18:23:02 - 	Averaging across folds
+15-02-26 18:23:02 - 	DELETING TEMP FILES
+15-02-26 18:23:02 - 	Done!
+15-02-26 18:23:02 - 	Peak Memory Usage = 56782734 bytes
+15-02-26 18:23:03 - pc = 1, m = 1, k = 5, tf = EP300
+15-02-26 18:23:03 - 	Creating Folds
+15-02-26 18:23:08 - 	Reading MLE matrices
+15-02-26 18:23:08 - 		Converting file 1 to fasta
+15-02-26 18:23:40 - 		Calculating MLE for file 1
+15-02-26 18:24:31 - 		Converting file 2 to fasta
+15-02-26 18:25:04 - 		Calculating MLE for file 2
+15-02-26 18:25:55 - 		Converting file 3 to fasta
+15-02-26 18:26:28 - 		Calculating MLE for file 3
+15-02-26 18:27:19 - 		Converting file 4 to fasta
+15-02-26 18:27:50 - 		Calculating MLE for file 4
+15-02-26 18:28:41 - 		Converting file 5 to fasta
+15-02-26 18:29:13 - 		Calculating MLE for file 5
+15-02-26 18:30:03 - 	Starting Calculation and Inference
+15-02-26 18:30:03 - 		Starting fold 1
+15-02-26 18:30:03 - 			Calculating Scores
+15-02-26 18:30:49 - 			Plotting Evaluation Metrics
+15-02-26 18:30:50 - 		Starting fold 2
+15-02-26 18:30:50 - 			Calculating Scores
+15-02-26 18:31:35 - 			Plotting Evaluation Metrics
+15-02-26 18:31:36 - 		Starting fold 3
+15-02-26 18:31:36 - 			Calculating Scores
+15-02-26 18:32:22 - 			Plotting Evaluation Metrics
+15-02-26 18:32:22 - 		Starting fold 4
+15-02-26 18:32:22 - 			Calculating Scores
+15-02-26 18:33:08 - 			Plotting Evaluation Metrics
+15-02-26 18:33:08 - 		Starting fold 5
+15-02-26 18:33:08 - 			Calculating Scores
+15-02-26 18:33:54 - 			Plotting Evaluation Metrics
+15-02-26 18:33:54 - 	Averaging across folds
+15-02-26 18:33:54 - 	DELETING TEMP FILES
+15-02-26 18:33:54 - 	Done!
+15-02-26 18:33:54 - 	Peak Memory Usage = 56781792 bytes
+15-02-26 18:33:56 - pc = 1, m = 2, k = 5, tf = CTCF
+15-02-26 18:33:56 - 	Creating Folds
+15-02-26 18:34:00 - 	Reading MLE matrices
+15-02-26 18:34:00 - 		Converting file 1 to fasta
+15-02-26 18:34:33 - 		Calculating MLE for file 1
+15-02-26 18:35:56 - 		Converting file 2 to fasta
+15-02-26 18:36:28 - 		Calculating MLE for file 2
+15-02-26 18:37:51 - 		Converting file 3 to fasta
+15-02-26 18:38:25 - 		Calculating MLE for file 3
+15-02-26 18:39:48 - 		Converting file 4 to fasta
+15-02-26 18:40:20 - 		Calculating MLE for file 4
+15-02-26 18:41:45 - 		Converting file 5 to fasta
+15-02-26 18:42:17 - 		Calculating MLE for file 5
+15-02-26 18:43:40 - 	Starting Calculation and Inference
+15-02-26 18:43:40 - 		Starting fold 1
+15-02-26 18:43:40 - 			Calculating Scores
+15-02-26 18:44:30 - 			Plotting Evaluation Metrics
+15-02-26 18:44:31 - 		Starting fold 2
+15-02-26 18:44:31 - 			Calculating Scores
+15-02-26 18:45:21 - 			Plotting Evaluation Metrics
+15-02-26 18:45:21 - 		Starting fold 3
+15-02-26 18:45:21 - 			Calculating Scores
+15-02-26 18:46:11 - 			Plotting Evaluation Metrics
+15-02-26 18:46:12 - 		Starting fold 4
+15-02-26 18:46:12 - 			Calculating Scores
+15-02-26 18:47:02 - 			Plotting Evaluation Metrics
+15-02-26 18:47:02 - 		Starting fold 5
+15-02-26 18:47:02 - 			Calculating Scores
+15-02-26 18:47:53 - 			Plotting Evaluation Metrics
+15-02-26 18:47:53 - 	Averaging across folds
+15-02-26 18:47:53 - 	DELETING TEMP FILES
+15-02-26 18:47:53 - 	Done!
+15-02-26 18:47:53 - 	Peak Memory Usage = 56781653 bytes
+15-02-26 18:47:54 - pc = 1, m = 2, k = 5, tf = REST
+15-02-26 18:47:54 - 	Creating Folds
+15-02-26 18:47:59 - 	Reading MLE matrices
+15-02-26 18:47:59 - 		Converting file 1 to fasta
+15-02-26 18:48:31 - 		Calculating MLE for file 1
+15-02-26 18:49:54 - 		Converting file 2 to fasta
+15-02-26 18:50:36 - 		Calculating MLE for file 2
+15-02-26 18:51:58 - 		Converting file 3 to fasta
+15-02-26 18:52:28 - 		Calculating MLE for file 3
+15-02-26 18:53:51 - 		Converting file 4 to fasta
+15-02-26 18:54:24 - 		Calculating MLE for file 4
+15-02-26 18:55:47 - 		Converting file 5 to fasta
+15-02-26 18:56:18 - 		Calculating MLE for file 5
+15-02-26 18:57:40 - 	Starting Calculation and Inference
+15-02-26 18:57:40 - 		Starting fold 1
+15-02-26 18:57:40 - 			Calculating Scores
+15-02-26 18:58:30 - 			Plotting Evaluation Metrics
+15-02-26 18:58:30 - 		Starting fold 2
+15-02-26 18:58:30 - 			Calculating Scores
+15-02-26 18:59:20 - 			Plotting Evaluation Metrics
+15-02-26 18:59:21 - 		Starting fold 3
+15-02-26 18:59:21 - 			Calculating Scores
+15-02-26 19:00:11 - 			Plotting Evaluation Metrics
+15-02-26 19:00:11 - 		Starting fold 4
+15-02-26 19:00:11 - 			Calculating Scores
+15-02-26 19:01:01 - 			Plotting Evaluation Metrics
+15-02-26 19:01:01 - 		Starting fold 5
+15-02-26 19:01:01 - 			Calculating Scores
+15-02-26 19:01:51 - 			Plotting Evaluation Metrics
+15-02-26 19:01:51 - 	Averaging across folds
+15-02-26 19:01:51 - 	DELETING TEMP FILES
+15-02-26 19:01:51 - 	Done!
+15-02-26 19:01:51 - 	Peak Memory Usage = 56782874 bytes
+15-02-26 19:01:52 - pc = 1, m = 2, k = 5, tf = EP300
+15-02-26 19:01:52 - 	Creating Folds
+15-02-26 19:01:56 - 	Reading MLE matrices
+15-02-26 19:01:56 - 		Converting file 1 to fasta
+15-02-26 19:02:29 - 		Calculating MLE for file 1
+15-02-26 19:03:52 - 		Converting file 2 to fasta
+15-02-26 19:04:29 - 		Calculating MLE for file 2
+15-02-26 19:05:52 - 		Converting file 3 to fasta
+15-02-26 19:06:26 - 		Calculating MLE for file 3
+15-02-26 19:07:49 - 		Converting file 4 to fasta
+15-02-26 19:08:21 - 		Calculating MLE for file 4
+15-02-26 19:09:44 - 		Converting file 5 to fasta
+15-02-26 19:10:18 - 		Calculating MLE for file 5
+15-02-26 19:11:41 - 	Starting Calculation and Inference
+15-02-26 19:11:41 - 		Starting fold 1
+15-02-26 19:11:41 - 			Calculating Scores
+15-02-26 19:12:32 - 			Plotting Evaluation Metrics
+15-02-26 19:12:32 - 		Starting fold 2
+15-02-26 19:12:32 - 			Calculating Scores
+15-02-26 19:13:22 - 			Plotting Evaluation Metrics
+15-02-26 19:13:23 - 		Starting fold 3
+15-02-26 19:13:23 - 			Calculating Scores
+15-02-26 19:14:12 - 			Plotting Evaluation Metrics
+15-02-26 19:14:13 - 		Starting fold 4
+15-02-26 19:14:13 - 			Calculating Scores
+15-02-26 19:15:02 - 			Plotting Evaluation Metrics
+15-02-26 19:15:02 - 		Starting fold 5
+15-02-26 19:15:02 - 			Calculating Scores
+15-02-26 19:15:52 - 			Plotting Evaluation Metrics
+15-02-26 19:15:52 - 	Averaging across folds
+15-02-26 19:15:52 - 	DELETING TEMP FILES
+15-02-26 19:15:52 - 	Done!
+15-02-26 19:15:52 - 	Peak Memory Usage = 56782307 bytes
+15-02-26 19:15:54 - pc = 1, m = 3, k = 5, tf = CTCF
+15-02-26 19:15:54 - 	Creating Folds
+15-02-26 19:15:58 - 	Reading MLE matrices
+15-02-26 19:15:58 - 		Converting file 1 to fasta
+15-02-26 19:16:33 - 		Calculating MLE for file 1
+15-02-26 19:18:28 - 		Converting file 2 to fasta
+15-02-26 19:19:07 - 		Calculating MLE for file 2
+15-02-26 19:21:01 - 		Converting file 3 to fasta
+15-02-26 19:21:31 - 		Calculating MLE for file 3
+15-02-26 19:23:26 - 		Converting file 4 to fasta
+15-02-26 19:23:57 - 		Calculating MLE for file 4
+15-02-26 19:25:51 - 		Converting file 5 to fasta
+15-02-26 19:26:21 - 		Calculating MLE for file 5
+15-02-26 19:28:16 - 	Starting Calculation and Inference
+15-02-26 19:28:16 - 		Starting fold 1
+15-02-26 19:28:16 - 			Calculating Scores
+15-02-26 19:29:06 - 			Plotting Evaluation Metrics
+15-02-26 19:29:07 - 		Starting fold 2
+15-02-26 19:29:07 - 			Calculating Scores
+15-02-26 19:29:58 - 			Plotting Evaluation Metrics
+15-02-26 19:29:58 - 		Starting fold 3
+15-02-26 19:29:58 - 			Calculating Scores
+15-02-26 19:30:48 - 			Plotting Evaluation Metrics
+15-02-26 19:30:48 - 		Starting fold 4
+15-02-26 19:30:48 - 			Calculating Scores
+15-02-26 19:31:39 - 			Plotting Evaluation Metrics
+15-02-26 19:31:39 - 		Starting fold 5
+15-02-26 19:31:39 - 			Calculating Scores
+15-02-26 19:32:30 - 			Plotting Evaluation Metrics
+15-02-26 19:32:30 - 	Averaging across folds
+15-02-26 19:32:30 - 	DELETING TEMP FILES
+15-02-26 19:32:30 - 	Done!
+15-02-26 19:32:30 - 	Peak Memory Usage = 56782538 bytes
+15-02-26 19:32:31 - pc = 1, m = 3, k = 5, tf = REST
+15-02-26 19:32:31 - 	Creating Folds
+15-02-26 19:32:35 - 	Reading MLE matrices
+15-02-26 19:32:35 - 		Converting file 1 to fasta
+15-02-26 19:33:07 - 		Calculating MLE for file 1
+15-02-26 19:35:01 - 		Converting file 2 to fasta
+15-02-26 19:35:44 - 		Calculating MLE for file 2
+15-02-26 19:37:37 - 		Converting file 3 to fasta
+15-02-26 19:38:10 - 		Calculating MLE for file 3
+15-02-26 19:40:04 - 		Converting file 4 to fasta
+15-02-26 19:40:36 - 		Calculating MLE for file 4
+15-02-26 19:42:29 - 		Converting file 5 to fasta
+15-02-26 19:43:03 - 		Calculating MLE for file 5
+15-02-26 19:44:57 - 	Starting Calculation and Inference
+15-02-26 19:44:57 - 		Starting fold 1
+15-02-26 19:44:57 - 			Calculating Scores
+15-02-26 19:45:47 - 			Plotting Evaluation Metrics
+15-02-26 19:45:48 - 		Starting fold 2
+15-02-26 19:45:48 - 			Calculating Scores
+15-02-26 19:46:38 - 			Plotting Evaluation Metrics
+15-02-26 19:46:38 - 		Starting fold 3
+15-02-26 19:46:38 - 			Calculating Scores
+15-02-26 19:47:28 - 			Plotting Evaluation Metrics
+15-02-26 19:47:28 - 		Starting fold 4
+15-02-26 19:47:28 - 			Calculating Scores
+15-02-26 19:48:18 - 			Plotting Evaluation Metrics
+15-02-26 19:48:19 - 		Starting fold 5
+15-02-26 19:48:19 - 			Calculating Scores
+15-02-26 19:49:09 - 			Plotting Evaluation Metrics
+15-02-26 19:49:09 - 	Averaging across folds
+15-02-26 19:49:09 - 	DELETING TEMP FILES
+15-02-26 19:49:09 - 	Done!
+15-02-26 19:49:09 - 	Peak Memory Usage = 56782504 bytes
+15-02-26 19:49:10 - pc = 1, m = 3, k = 5, tf = EP300
+15-02-26 19:49:10 - 	Creating Folds
+15-02-26 19:49:14 - 	Reading MLE matrices
+15-02-26 19:49:14 - 		Converting file 1 to fasta
+15-02-26 19:49:47 - 		Calculating MLE for file 1
+15-02-26 19:51:41 - 		Converting file 2 to fasta
+15-02-26 19:52:12 - 		Calculating MLE for file 2
+15-02-26 19:54:06 - 		Converting file 3 to fasta
+15-02-26 19:54:36 - 		Calculating MLE for file 3
+15-02-26 19:56:30 - 		Converting file 4 to fasta
+15-02-26 19:57:02 - 		Calculating MLE for file 4
+15-02-26 19:58:57 - 		Converting file 5 to fasta
+15-02-26 19:59:27 - 		Calculating MLE for file 5
+15-02-26 20:01:21 - 	Starting Calculation and Inference
+15-02-26 20:01:21 - 		Starting fold 1
+15-02-26 20:01:21 - 			Calculating Scores
+15-02-26 20:02:11 - 			Plotting Evaluation Metrics
+15-02-26 20:02:12 - 		Starting fold 2
+15-02-26 20:02:12 - 			Calculating Scores
+15-02-26 20:03:02 - 			Plotting Evaluation Metrics
+15-02-26 20:03:02 - 		Starting fold 3
+15-02-26 20:03:02 - 			Calculating Scores
+15-02-26 20:03:52 - 			Plotting Evaluation Metrics
+15-02-26 20:03:53 - 		Starting fold 4
+15-02-26 20:03:53 - 			Calculating Scores
+15-02-26 20:04:43 - 			Plotting Evaluation Metrics
+15-02-26 20:04:43 - 		Starting fold 5
+15-02-26 20:04:43 - 			Calculating Scores
+15-02-26 20:05:33 - 			Plotting Evaluation Metrics
+15-02-26 20:05:34 - 	Averaging across folds
+15-02-26 20:05:34 - 	DELETING TEMP FILES
+15-02-26 20:05:34 - 	Done!
+15-02-26 20:05:34 - 	Peak Memory Usage = 56782772 bytes
+15-02-26 20:05:35 - pc = 1, m = 4, k = 5, tf = CTCF
+15-02-26 20:05:35 - 	Creating Folds
+15-02-26 20:05:39 - 	Reading MLE matrices
+15-02-26 20:05:39 - 		Converting file 1 to fasta
+15-02-26 20:06:15 - 		Calculating MLE for file 1
+15-02-26 20:08:44 - 		Converting file 2 to fasta
+15-02-26 20:09:13 - 		Calculating MLE for file 2
+15-02-26 20:11:42 - 		Converting file 3 to fasta
+15-02-26 20:12:13 - 		Calculating MLE for file 3
+15-02-26 20:14:41 - 		Converting file 4 to fasta
+15-02-26 20:15:12 - 		Calculating MLE for file 4
+15-02-26 20:17:40 - 		Converting file 5 to fasta
+15-02-26 20:18:11 - 		Calculating MLE for file 5
+15-02-26 20:20:40 - 	Starting Calculation and Inference
+15-02-26 20:20:40 - 		Starting fold 1
+15-02-26 20:20:40 - 			Calculating Scores
+15-02-26 20:21:31 - 			Plotting Evaluation Metrics
+15-02-26 20:21:32 - 		Starting fold 2
+15-02-26 20:21:32 - 			Calculating Scores
+15-02-26 20:22:23 - 			Plotting Evaluation Metrics
+15-02-26 20:22:23 - 		Starting fold 3
+15-02-26 20:22:23 - 			Calculating Scores
+15-02-26 20:23:14 - 			Plotting Evaluation Metrics
+15-02-26 20:23:14 - 		Starting fold 4
+15-02-26 20:23:14 - 			Calculating Scores
+15-02-26 20:24:05 - 			Plotting Evaluation Metrics
+15-02-26 20:24:06 - 		Starting fold 5
+15-02-26 20:24:06 - 			Calculating Scores
+15-02-26 20:24:57 - 			Plotting Evaluation Metrics
+15-02-26 20:24:57 - 	Averaging across folds
+15-02-26 20:24:57 - 	DELETING TEMP FILES
+15-02-26 20:24:57 - 	Done!
+15-02-26 20:24:57 - 	Peak Memory Usage = 56782733 bytes
+15-02-26 20:24:58 - pc = 1, m = 4, k = 5, tf = REST
+15-02-26 20:24:58 - 	Creating Folds
+15-02-26 20:25:02 - 	Reading MLE matrices
+15-02-26 20:25:02 - 		Converting file 1 to fasta
+15-02-26 20:25:35 - 		Calculating MLE for file 1
+15-02-26 20:28:11 - 		Converting file 2 to fasta
+15-02-26 20:28:48 - 		Calculating MLE for file 2
+15-02-26 20:31:27 - 		Converting file 3 to fasta
+15-02-26 20:32:36 - 		Calculating MLE for file 3
+15-02-26 20:35:31 - 		Converting file 4 to fasta
+15-02-26 20:36:25 - 		Calculating MLE for file 4
+15-02-26 20:39:23 - 		Converting file 5 to fasta
+15-02-26 20:40:17 - 		Calculating MLE for file 5
+15-02-26 20:43:09 - 	Starting Calculation and Inference
+15-02-26 20:43:09 - 		Starting fold 1
+15-02-26 20:43:09 - 			Calculating Scores
+15-02-26 20:44:11 - 			Plotting Evaluation Metrics
+15-02-26 20:44:12 - 		Starting fold 2
+15-02-26 20:44:12 - 			Calculating Scores
+15-02-26 20:45:15 - 			Plotting Evaluation Metrics
+15-02-26 20:45:15 - 		Starting fold 3
+15-02-26 20:45:15 - 			Calculating Scores
+15-02-26 20:46:18 - 			Plotting Evaluation Metrics
+15-02-26 20:46:19 - 		Starting fold 4
+15-02-26 20:46:19 - 			Calculating Scores
+15-02-26 20:47:23 - 			Plotting Evaluation Metrics
+15-02-26 20:47:23 - 		Starting fold 5
+15-02-26 20:47:23 - 			Calculating Scores
+15-02-26 20:48:27 - 			Plotting Evaluation Metrics
+15-02-26 20:48:27 - 	Averaging across folds
+15-02-26 20:48:27 - 	DELETING TEMP FILES
+15-02-26 20:48:28 - 	Done!
+15-02-26 20:48:28 - 	Peak Memory Usage = 56781623 bytes
+15-02-26 20:48:29 - pc = 1, m = 4, k = 5, tf = EP300
+15-02-26 20:48:29 - 	Creating Folds
+15-02-26 20:48:34 - 	Reading MLE matrices
+15-02-26 20:48:34 - 		Converting file 1 to fasta
+15-02-26 20:49:28 - 		Calculating MLE for file 1
+15-02-26 20:52:25 - 		Converting file 2 to fasta
+15-02-26 20:53:15 - 		Calculating MLE for file 2
+15-02-26 20:55:59 - 		Converting file 3 to fasta
+15-02-26 20:56:53 - 		Calculating MLE for file 3
+15-02-26 20:59:41 - 		Converting file 4 to fasta
+15-02-26 21:00:34 - 		Calculating MLE for file 4
+15-02-26 21:03:18 - 		Converting file 5 to fasta
+15-02-26 21:04:12 - 		Calculating MLE for file 5
+15-02-26 21:06:57 - 	Starting Calculation and Inference
+15-02-26 21:06:57 - 		Starting fold 1
+15-02-26 21:06:57 - 			Calculating Scores
+15-02-26 21:07:55 - 			Plotting Evaluation Metrics
+15-02-26 21:07:56 - 		Starting fold 2
+15-02-26 21:07:56 - 			Calculating Scores
+15-02-26 21:08:54 - 			Plotting Evaluation Metrics
+15-02-26 21:08:54 - 		Starting fold 3
+15-02-26 21:08:54 - 			Calculating Scores
+15-02-26 21:09:54 - 			Plotting Evaluation Metrics
+15-02-26 21:09:54 - 		Starting fold 4
+15-02-26 21:09:54 - 			Calculating Scores
+15-02-26 21:10:52 - 			Plotting Evaluation Metrics
+15-02-26 21:10:52 - 		Starting fold 5
+15-02-26 21:10:52 - 			Calculating Scores
+15-02-26 21:11:51 - 			Plotting Evaluation Metrics
+15-02-26 21:11:51 - 	Averaging across folds
+15-02-26 21:11:51 - 	DELETING TEMP FILES
+15-02-26 21:11:51 - 	Done!
+15-02-26 21:11:51 - 	Peak Memory Usage = 56782927 bytes
+15-02-26 21:11:53 - pc = 1, m = 5, k = 5, tf = CTCF
+15-02-26 21:11:53 - 	Creating Folds
+15-02-26 21:11:57 - 	Reading MLE matrices
+15-02-26 21:11:57 - 		Converting file 1 to fasta
+15-02-26 21:12:50 - 		Calculating MLE for file 1
+15-02-26 21:16:08 - 		Converting file 2 to fasta
+15-02-26 21:16:41 - 		Calculating MLE for file 2
+15-02-26 21:19:45 - 		Converting file 3 to fasta
+15-02-26 21:20:26 - 		Calculating MLE for file 3
+15-02-26 21:23:29 - 		Converting file 4 to fasta
+15-02-26 21:24:01 - 		Calculating MLE for file 4
+15-02-26 21:27:04 - 		Converting file 5 to fasta
+15-02-26 21:27:36 - 		Calculating MLE for file 5
+15-02-26 21:30:39 - 	Starting Calculation and Inference
+15-02-26 21:30:39 - 		Starting fold 1
+15-02-26 21:30:39 - 			Calculating Scores
+15-02-26 21:31:33 - 			Plotting Evaluation Metrics
+15-02-26 21:31:34 - 		Starting fold 2
+15-02-26 21:31:34 - 			Calculating Scores
+15-02-26 21:32:28 - 			Plotting Evaluation Metrics
+15-02-26 21:32:28 - 		Starting fold 3
+15-02-26 21:32:29 - 			Calculating Scores
+15-02-26 21:33:23 - 			Plotting Evaluation Metrics
+15-02-26 21:33:23 - 		Starting fold 4
+15-02-26 21:33:23 - 			Calculating Scores
+15-02-26 21:34:17 - 			Plotting Evaluation Metrics
+15-02-26 21:34:17 - 		Starting fold 5
+15-02-26 21:34:17 - 			Calculating Scores
+15-02-26 21:35:11 - 			Plotting Evaluation Metrics
+15-02-26 21:35:12 - 	Averaging across folds
+15-02-26 21:35:12 - 	DELETING TEMP FILES
+15-02-26 21:35:12 - 	Done!
+15-02-26 21:35:12 - 	Peak Memory Usage = 56782273 bytes
+15-02-26 21:35:13 - pc = 1, m = 5, k = 5, tf = REST
+15-02-26 21:35:13 - 	Creating Folds
+15-02-26 21:35:17 - 	Reading MLE matrices
+15-02-26 21:35:17 - 		Converting file 1 to fasta
+15-02-26 21:35:52 - 		Calculating MLE for file 1
+15-02-26 21:38:57 - 		Converting file 2 to fasta
+15-02-26 21:39:30 - 		Calculating MLE for file 2
+15-02-26 21:42:35 - 		Converting file 3 to fasta
+15-02-26 21:43:08 - 		Calculating MLE for file 3
+15-02-26 21:46:12 - 		Converting file 4 to fasta
+15-02-26 21:46:44 - 		Calculating MLE for file 4
+15-02-26 21:49:48 - 		Converting file 5 to fasta
+15-02-26 21:50:21 - 		Calculating MLE for file 5
+15-02-26 21:53:25 - 	Starting Calculation and Inference
+15-02-26 21:53:25 - 		Starting fold 1
+15-02-26 21:53:26 - 			Calculating Scores
+15-02-26 21:54:20 - 			Plotting Evaluation Metrics
+15-02-26 21:54:20 - 		Starting fold 2
+15-02-26 21:54:21 - 			Calculating Scores
+15-02-26 21:55:15 - 			Plotting Evaluation Metrics
+15-02-26 21:55:15 - 		Starting fold 3
+15-02-26 21:55:15 - 			Calculating Scores
+15-02-26 21:56:10 - 			Plotting Evaluation Metrics
+15-02-26 21:56:10 - 		Starting fold 4
+15-02-26 21:56:10 - 			Calculating Scores
+15-02-26 21:57:05 - 			Plotting Evaluation Metrics
+15-02-26 21:57:05 - 		Starting fold 5
+15-02-26 21:57:05 - 			Calculating Scores
+15-02-26 21:58:00 - 			Plotting Evaluation Metrics
+15-02-26 21:58:00 - 	Averaging across folds
+15-02-26 21:58:00 - 	DELETING TEMP FILES
+15-02-26 21:58:00 - 	Done!
+15-02-26 21:58:00 - 	Peak Memory Usage = 56782999 bytes
+15-02-26 21:58:01 - pc = 1, m = 5, k = 5, tf = EP300
+15-02-26 21:58:01 - 	Creating Folds
+15-02-26 21:58:05 - 	Reading MLE matrices
+15-02-26 21:58:05 - 		Converting file 1 to fasta
+15-02-26 21:58:39 - 		Calculating MLE for file 1
+15-02-26 22:01:43 - 		Converting file 2 to fasta
+15-02-26 22:02:15 - 		Calculating MLE for file 2
+15-02-26 22:05:18 - 		Converting file 3 to fasta
+15-02-26 22:05:55 - 		Calculating MLE for file 3
+15-02-26 22:08:58 - 		Converting file 4 to fasta
+15-02-26 22:09:30 - 		Calculating MLE for file 4
+15-02-26 22:12:33 - 		Converting file 5 to fasta
+15-02-26 22:13:05 - 		Calculating MLE for file 5
+15-02-26 22:16:08 - 	Starting Calculation and Inference
+15-02-26 22:16:08 - 		Starting fold 1
+15-02-26 22:16:08 - 			Calculating Scores
+15-02-26 22:17:03 - 			Plotting Evaluation Metrics
+15-02-26 22:17:03 - 		Starting fold 2
+15-02-26 22:17:03 - 			Calculating Scores
+15-02-26 22:17:58 - 			Plotting Evaluation Metrics
+15-02-26 22:17:58 - 		Starting fold 3
+15-02-26 22:17:58 - 			Calculating Scores
+15-02-26 22:18:54 - 			Plotting Evaluation Metrics
+15-02-26 22:18:54 - 		Starting fold 4
+15-02-26 22:18:54 - 			Calculating Scores
+15-02-26 22:19:49 - 			Plotting Evaluation Metrics
+15-02-26 22:19:49 - 		Starting fold 5
+15-02-26 22:19:49 - 			Calculating Scores
+15-02-26 22:20:44 - 			Plotting Evaluation Metrics
+15-02-26 22:20:44 - 	Averaging across folds
+15-02-26 22:20:44 - 	DELETING TEMP FILES
+15-02-26 22:20:45 - 	Done!
+15-02-26 22:20:45 - 	Peak Memory Usage = 56783031 bytes
+15-02-26 22:20:46 - pc = 1, m = 6, k = 5, tf = CTCF
+15-02-26 22:20:46 - 	Creating Folds
+15-02-26 22:20:50 - 	Reading MLE matrices
+15-02-26 22:20:50 - 		Converting file 1 to fasta
+15-02-26 22:21:25 - 		Calculating MLE for file 1
+15-02-26 22:25:12 - 		Converting file 2 to fasta
+15-02-26 22:25:45 - 		Calculating MLE for file 2
+15-02-26 22:29:33 - 		Converting file 3 to fasta
+15-02-26 22:30:05 - 		Calculating MLE for file 3
+15-02-26 22:33:52 - 		Converting file 4 to fasta
+15-02-26 22:34:24 - 		Calculating MLE for file 4
+15-02-26 22:38:13 - 		Converting file 5 to fasta
+15-02-26 22:38:43 - 		Calculating MLE for file 5
+15-02-26 22:42:28 - 	Starting Calculation and Inference
+15-02-26 22:42:28 - 		Starting fold 1
+15-02-26 22:42:28 - 			Calculating Scores
+15-02-26 22:43:28 - 			Plotting Evaluation Metrics
+15-02-26 22:43:29 - 		Starting fold 2
+15-02-26 22:43:29 - 			Calculating Scores
+15-02-26 22:44:29 - 			Plotting Evaluation Metrics
+15-02-26 22:44:29 - 		Starting fold 3
+15-02-26 22:44:29 - 			Calculating Scores
+15-02-26 22:45:29 - 			Plotting Evaluation Metrics
+15-02-26 22:45:29 - 		Starting fold 4
+15-02-26 22:45:29 - 			Calculating Scores
+15-02-26 22:46:29 - 			Plotting Evaluation Metrics
+15-02-26 22:46:29 - 		Starting fold 5
+15-02-26 22:46:29 - 			Calculating Scores
+15-02-26 22:47:29 - 			Plotting Evaluation Metrics
+15-02-26 22:47:29 - 	Averaging across folds
+15-02-26 22:47:29 - 	DELETING TEMP FILES
+15-02-26 22:47:29 - 	Done!
+15-02-26 22:47:29 - 	Peak Memory Usage = 56783093 bytes
+15-02-26 22:47:30 - pc = 1, m = 6, k = 5, tf = REST
+15-02-26 22:47:30 - 	Creating Folds
+15-02-26 22:47:35 - 	Reading MLE matrices
+15-02-26 22:47:35 - 		Converting file 1 to fasta
+15-02-26 22:48:04 - 		Calculating MLE for file 1
+15-02-26 22:51:47 - 		Converting file 2 to fasta
+15-02-26 22:52:17 - 		Calculating MLE for file 2
+15-02-26 22:56:00 - 		Converting file 3 to fasta
+15-02-26 22:56:31 - 		Calculating MLE for file 3
+15-02-26 23:00:13 - 		Converting file 4 to fasta
+15-02-26 23:00:44 - 		Calculating MLE for file 4
+15-02-26 23:04:26 - 		Converting file 5 to fasta
+15-02-26 23:04:57 - 		Calculating MLE for file 5
+15-02-26 23:08:40 - 	Starting Calculation and Inference
+15-02-26 23:08:40 - 		Starting fold 1
+15-02-26 23:08:40 - 			Calculating Scores
+15-02-26 23:09:40 - 			Plotting Evaluation Metrics
+15-02-26 23:09:41 - 		Starting fold 2
+15-02-26 23:09:41 - 			Calculating Scores
+15-02-26 23:10:41 - 			Plotting Evaluation Metrics
+15-02-26 23:10:41 - 		Starting fold 3
+15-02-26 23:10:41 - 			Calculating Scores
+15-02-26 23:11:41 - 			Plotting Evaluation Metrics
+15-02-26 23:11:41 - 		Starting fold 4
+15-02-26 23:11:41 - 			Calculating Scores
+15-02-26 23:12:41 - 			Plotting Evaluation Metrics
+15-02-26 23:12:41 - 		Starting fold 5
+15-02-26 23:12:41 - 			Calculating Scores
+15-02-26 23:13:41 - 			Plotting Evaluation Metrics
+15-02-26 23:13:41 - 	Averaging across folds
+15-02-26 23:13:41 - 	DELETING TEMP FILES
+15-02-26 23:13:42 - 	Done!
+15-02-26 23:13:42 - 	Peak Memory Usage = 56781799 bytes
+15-02-26 23:13:43 - pc = 1, m = 6, k = 5, tf = EP300
+15-02-26 23:13:43 - 	Creating Folds
+15-02-26 23:13:47 - 	Reading MLE matrices
+15-02-26 23:13:47 - 		Converting file 1 to fasta
+15-02-26 23:14:18 - 		Calculating MLE for file 1
+15-02-26 23:18:01 - 		Converting file 2 to fasta
+15-02-26 23:18:32 - 		Calculating MLE for file 2
+15-02-26 23:22:17 - 		Converting file 3 to fasta
+15-02-26 23:22:48 - 		Calculating MLE for file 3
+15-02-26 23:26:31 - 		Converting file 4 to fasta
+15-02-26 23:27:02 - 		Calculating MLE for file 4
+15-02-26 23:30:45 - 		Converting file 5 to fasta
+15-02-26 23:31:16 - 		Calculating MLE for file 5
+15-02-26 23:35:00 - 	Starting Calculation and Inference
+15-02-26 23:35:00 - 		Starting fold 1
+15-02-26 23:35:00 - 			Calculating Scores
+15-02-26 23:36:00 - 			Plotting Evaluation Metrics
+15-02-26 23:36:00 - 		Starting fold 2
+15-02-26 23:36:00 - 			Calculating Scores
+15-02-26 23:37:00 - 			Plotting Evaluation Metrics
+15-02-26 23:37:00 - 		Starting fold 3
+15-02-26 23:37:00 - 			Calculating Scores
+15-02-26 23:38:00 - 			Plotting Evaluation Metrics
+15-02-26 23:38:00 - 		Starting fold 4
+15-02-26 23:38:00 - 			Calculating Scores
+15-02-26 23:38:59 - 			Plotting Evaluation Metrics
+15-02-26 23:39:00 - 		Starting fold 5
+15-02-26 23:39:00 - 			Calculating Scores
+15-02-26 23:40:00 - 			Plotting Evaluation Metrics
+15-02-26 23:40:00 - 	Averaging across folds
+15-02-26 23:40:00 - 	DELETING TEMP FILES
+15-02-26 23:40:00 - 	Done!
+15-02-26 23:40:00 - 	Peak Memory Usage = 56782631 bytes
+15-02-26 23:40:01 - pc = 1, m = 7, k = 5, tf = CTCF
+15-02-26 23:40:01 - 	Creating Folds
+15-02-26 23:40:05 - 	Reading MLE matrices
+15-02-26 23:40:05 - 		Converting file 1 to fasta
+15-02-26 23:40:37 - 		Calculating MLE for file 1
+15-02-26 23:45:07 - 		Converting file 2 to fasta
+15-02-26 23:45:39 - 		Calculating MLE for file 2
+15-02-26 23:50:08 - 		Converting file 3 to fasta
+15-02-26 23:50:40 - 		Calculating MLE for file 3
+15-02-26 23:55:10 - 		Converting file 4 to fasta
+15-02-26 23:55:42 - 		Calculating MLE for file 4
+16-02-26 00:00:10 - 		Converting file 5 to fasta
+16-02-26 00:00:42 - 		Calculating MLE for file 5
+16-02-26 00:05:11 - 	Starting Calculation and Inference
+16-02-26 00:05:11 - 		Starting fold 1
+16-02-26 00:05:11 - 			Calculating Scores
+16-02-26 00:06:17 - 			Plotting Evaluation Metrics
+16-02-26 00:06:18 - 		Starting fold 2
+16-02-26 00:06:18 - 			Calculating Scores
+16-02-26 00:07:24 - 			Plotting Evaluation Metrics
+16-02-26 00:07:24 - 		Starting fold 3
+16-02-26 00:07:24 - 			Calculating Scores
+16-02-26 00:08:30 - 			Plotting Evaluation Metrics
+16-02-26 00:08:30 - 		Starting fold 4
+16-02-26 00:08:30 - 			Calculating Scores
+16-02-26 00:09:36 - 			Plotting Evaluation Metrics
+16-02-26 00:09:36 - 		Starting fold 5
+16-02-26 00:09:37 - 			Calculating Scores
+16-02-26 00:10:42 - 			Plotting Evaluation Metrics
+16-02-26 00:10:42 - 	Averaging across folds
+16-02-26 00:10:42 - 	DELETING TEMP FILES
+16-02-26 00:10:43 - 	Done!
+16-02-26 00:10:43 - 	Peak Memory Usage = 56782058 bytes
+16-02-26 00:10:44 - pc = 1, m = 7, k = 5, tf = REST
+16-02-26 00:10:44 - 	Creating Folds
+16-02-26 00:10:48 - 	Reading MLE matrices
+16-02-26 00:10:48 - 		Converting file 1 to fasta
+16-02-26 00:11:19 - 		Calculating MLE for file 1
+16-02-26 00:15:48 - 		Converting file 2 to fasta
+16-02-26 00:16:19 - 		Calculating MLE for file 2
+16-02-26 00:20:48 - 		Converting file 3 to fasta
+16-02-26 00:21:20 - 		Calculating MLE for file 3
+16-02-26 00:25:48 - 		Converting file 4 to fasta
+16-02-26 00:26:20 - 		Calculating MLE for file 4
+16-02-26 00:30:48 - 		Converting file 5 to fasta
+16-02-26 00:31:19 - 		Calculating MLE for file 5
+16-02-26 00:35:49 - 	Starting Calculation and Inference
+16-02-26 00:35:49 - 		Starting fold 1
+16-02-26 00:35:49 - 			Calculating Scores
+16-02-26 00:36:55 - 			Plotting Evaluation Metrics
+16-02-26 00:36:55 - 		Starting fold 2
+16-02-26 00:36:55 - 			Calculating Scores
+16-02-26 00:38:01 - 			Plotting Evaluation Metrics
+16-02-26 00:38:02 - 		Starting fold 3
+16-02-26 00:38:02 - 			Calculating Scores
+16-02-26 00:39:08 - 			Plotting Evaluation Metrics
+16-02-26 00:39:08 - 		Starting fold 4
+16-02-26 00:39:08 - 			Calculating Scores
+16-02-26 00:40:14 - 			Plotting Evaluation Metrics
+16-02-26 00:40:14 - 		Starting fold 5
+16-02-26 00:40:14 - 			Calculating Scores
+16-02-26 00:41:20 - 			Plotting Evaluation Metrics
+16-02-26 00:41:20 - 	Averaging across folds
+16-02-26 00:41:20 - 	DELETING TEMP FILES
+16-02-26 00:41:21 - 	Done!
+16-02-26 00:41:21 - 	Peak Memory Usage = 56782248 bytes
+16-02-26 00:41:22 - pc = 1, m = 7, k = 5, tf = EP300
+16-02-26 00:41:22 - 	Creating Folds
+16-02-26 00:41:26 - 	Reading MLE matrices
+16-02-26 00:41:26 - 		Converting file 1 to fasta
+16-02-26 00:41:57 - 		Calculating MLE for file 1
+16-02-26 00:46:30 - 		Converting file 2 to fasta
+16-02-26 00:47:00 - 		Calculating MLE for file 2
+16-02-26 00:51:34 - 		Converting file 3 to fasta
+16-02-26 00:52:05 - 		Calculating MLE for file 3
+16-02-26 00:56:39 - 		Converting file 4 to fasta
+16-02-26 00:57:10 - 		Calculating MLE for file 4
+16-02-26 01:01:43 - 		Converting file 5 to fasta
+16-02-26 01:02:15 - 		Calculating MLE for file 5
+16-02-26 01:06:48 - 	Starting Calculation and Inference
+16-02-26 01:06:48 - 		Starting fold 1
+16-02-26 01:06:48 - 			Calculating Scores
+16-02-26 01:07:54 - 			Plotting Evaluation Metrics
+16-02-26 01:07:55 - 		Starting fold 2
+16-02-26 01:07:55 - 			Calculating Scores
+16-02-26 01:09:02 - 			Plotting Evaluation Metrics
+16-02-26 01:09:02 - 		Starting fold 3
+16-02-26 01:09:02 - 			Calculating Scores
+16-02-26 01:10:09 - 			Plotting Evaluation Metrics
+16-02-26 01:10:09 - 		Starting fold 4
+16-02-26 01:10:09 - 			Calculating Scores
+16-02-26 01:11:16 - 			Plotting Evaluation Metrics
+16-02-26 01:11:16 - 		Starting fold 5
+16-02-26 01:11:16 - 			Calculating Scores
+16-02-26 01:12:22 - 			Plotting Evaluation Metrics
+16-02-26 01:12:23 - 	Averaging across folds
+16-02-26 01:12:23 - 	DELETING TEMP FILES
+16-02-26 01:12:23 - 	Done!
+16-02-26 01:12:23 - 	Peak Memory Usage = 56781582 bytes
+16-02-26 01:12:24 - pc = 1, m = 8, k = 5, tf = CTCF
+16-02-26 01:12:24 - 	Creating Folds
+16-02-26 01:12:28 - 	Reading MLE matrices
+16-02-26 01:12:28 - 		Converting file 1 to fasta
+16-02-26 01:13:00 - 		Calculating MLE for file 1
+16-02-26 01:18:27 - 		Converting file 2 to fasta
+16-02-26 01:18:58 - 		Calculating MLE for file 2
+16-02-26 01:24:26 - 		Converting file 3 to fasta
+16-02-26 01:24:58 - 		Calculating MLE for file 3
+16-02-26 01:30:26 - 		Converting file 4 to fasta
+16-02-26 01:30:58 - 		Calculating MLE for file 4
+16-02-26 01:36:26 - 		Converting file 5 to fasta
+16-02-26 01:36:57 - 		Calculating MLE for file 5
+16-02-26 01:42:24 - 	Starting Calculation and Inference
+16-02-26 01:42:24 - 		Starting fold 1
+16-02-26 01:42:24 - 			Calculating Scores
+16-02-26 01:43:39 - 			Plotting Evaluation Metrics
+16-02-26 01:43:40 - 		Starting fold 2
+16-02-26 01:43:40 - 			Calculating Scores
+16-02-26 01:44:55 - 			Plotting Evaluation Metrics
+16-02-26 01:44:55 - 		Starting fold 3
+16-02-26 01:44:55 - 			Calculating Scores
+16-02-26 01:46:10 - 			Plotting Evaluation Metrics
+16-02-26 01:46:11 - 		Starting fold 4
+16-02-26 01:46:11 - 			Calculating Scores
+16-02-26 01:47:26 - 			Plotting Evaluation Metrics
+16-02-26 01:47:26 - 		Starting fold 5
+16-02-26 01:47:26 - 			Calculating Scores
+16-02-26 01:48:41 - 			Plotting Evaluation Metrics
+16-02-26 01:48:41 - 	Averaging across folds
+16-02-26 01:48:41 - 	DELETING TEMP FILES
+16-02-26 01:48:41 - 	Done!
+16-02-26 01:48:41 - 	Peak Memory Usage = 56782023 bytes
+16-02-26 01:48:43 - pc = 1, m = 8, k = 5, tf = REST
+16-02-26 01:48:43 - 	Creating Folds
+16-02-26 01:48:47 - 	Reading MLE matrices
+16-02-26 01:48:47 - 		Converting file 1 to fasta
+16-02-26 01:49:19 - 		Calculating MLE for file 1
+16-02-26 01:54:44 - 		Converting file 2 to fasta
+16-02-26 01:55:13 - 		Calculating MLE for file 2
+16-02-26 02:00:39 - 		Converting file 3 to fasta
+16-02-26 02:01:10 - 		Calculating MLE for file 3
+16-02-26 02:06:35 - 		Converting file 4 to fasta
+16-02-26 02:07:06 - 		Calculating MLE for file 4
+16-02-26 02:12:31 - 		Converting file 5 to fasta
+16-02-26 02:13:02 - 		Calculating MLE for file 5
+16-02-26 02:18:27 - 	Starting Calculation and Inference
+16-02-26 02:18:27 - 		Starting fold 1
+16-02-26 02:18:27 - 			Calculating Scores
+16-02-26 02:19:41 - 			Plotting Evaluation Metrics
+16-02-26 02:19:42 - 		Starting fold 2
+16-02-26 02:19:42 - 			Calculating Scores
+16-02-26 02:20:57 - 			Plotting Evaluation Metrics
+16-02-26 02:20:57 - 		Starting fold 3
+16-02-26 02:20:57 - 			Calculating Scores
+16-02-26 02:22:12 - 			Plotting Evaluation Metrics
+16-02-26 02:22:12 - 		Starting fold 4
+16-02-26 02:22:12 - 			Calculating Scores
+16-02-26 02:23:27 - 			Plotting Evaluation Metrics
+16-02-26 02:23:28 - 		Starting fold 5
+16-02-26 02:23:28 - 			Calculating Scores
+16-02-26 02:24:42 - 			Plotting Evaluation Metrics
+16-02-26 02:24:43 - 	Averaging across folds
+16-02-26 02:24:43 - 	DELETING TEMP FILES
+16-02-26 02:24:43 - 	Done!
+16-02-26 02:24:43 - 	Peak Memory Usage = 56782173 bytes
+16-02-26 02:24:44 - pc = 1, m = 8, k = 5, tf = EP300
+16-02-26 02:24:44 - 	Creating Folds
+16-02-26 02:24:49 - 	Reading MLE matrices
+16-02-26 02:24:49 - 		Converting file 1 to fasta
+16-02-26 02:25:25 - 		Calculating MLE for file 1
+16-02-26 02:30:50 - 		Converting file 2 to fasta
+16-02-26 02:31:21 - 		Calculating MLE for file 2
+16-02-26 02:36:46 - 		Converting file 3 to fasta
+16-02-26 02:37:18 - 		Calculating MLE for file 3
+16-02-26 02:42:43 - 		Converting file 4 to fasta
+16-02-26 02:43:15 - 		Calculating MLE for file 4
+16-02-26 02:48:38 - 		Converting file 5 to fasta
+16-02-26 02:49:10 - 		Calculating MLE for file 5
+16-02-26 02:54:35 - 	Starting Calculation and Inference
+16-02-26 02:54:35 - 		Starting fold 1
+16-02-26 02:54:36 - 			Calculating Scores
+16-02-26 02:55:50 - 			Plotting Evaluation Metrics
+16-02-26 02:55:51 - 		Starting fold 2
+16-02-26 02:55:51 - 			Calculating Scores
+16-02-26 02:57:06 - 			Plotting Evaluation Metrics
+16-02-26 02:57:06 - 		Starting fold 3
+16-02-26 02:57:06 - 			Calculating Scores
+16-02-26 02:58:22 - 			Plotting Evaluation Metrics
+16-02-26 02:58:22 - 		Starting fold 4
+16-02-26 02:58:23 - 			Calculating Scores
+16-02-26 02:59:37 - 			Plotting Evaluation Metrics
+16-02-26 02:59:38 - 		Starting fold 5
+16-02-26 02:59:38 - 			Calculating Scores
+16-02-26 03:00:53 - 			Plotting Evaluation Metrics
+16-02-26 03:00:53 - 	Averaging across folds
+16-02-26 03:00:53 - 	DELETING TEMP FILES
+16-02-26 03:00:53 - 	Done!
+16-02-26 03:00:53 - 	Peak Memory Usage = 56782311 bytes
+16-02-26 03:00:55 - pc = 1, m = 9, k = 5, tf = CTCF
+16-02-26 03:00:55 - 	Creating Folds
+16-02-26 03:00:59 - 	Reading MLE matrices
+16-02-26 03:00:59 - 		Converting file 1 to fasta
+16-02-26 03:01:31 - 		Calculating MLE for file 1
+16-02-26 03:07:57 - 		Converting file 2 to fasta
+16-02-26 03:08:29 - 		Calculating MLE for file 2
+16-02-26 03:14:56 - 		Converting file 3 to fasta
+16-02-26 03:15:28 - 		Calculating MLE for file 3
+16-02-26 03:21:57 - 		Converting file 4 to fasta
+16-02-26 03:22:29 - 		Calculating MLE for file 4
+16-02-26 03:28:54 - 		Converting file 5 to fasta
+16-02-26 03:29:24 - 		Calculating MLE for file 5
+16-02-26 03:46:18 - 	Starting Calculation and Inference
+16-02-26 03:46:18 - 		Starting fold 1
+16-02-26 03:46:18 - 			Calculating Scores
+16-02-26 03:47:40 - 			Plotting Evaluation Metrics
+16-02-26 03:47:40 - 		Starting fold 2
+16-02-26 03:47:40 - 			Calculating Scores
+16-02-26 03:49:02 - 			Plotting Evaluation Metrics
+16-02-26 03:49:02 - 		Starting fold 3
+16-02-26 03:49:03 - 			Calculating Scores
+16-02-26 03:50:25 - 			Plotting Evaluation Metrics
+16-02-26 03:50:25 - 		Starting fold 4
+16-02-26 03:50:25 - 			Calculating Scores
+16-02-26 03:51:47 - 			Plotting Evaluation Metrics
+16-02-26 03:51:47 - 		Starting fold 5
+16-02-26 03:51:47 - 			Calculating Scores
+16-02-26 03:53:09 - 			Plotting Evaluation Metrics
+16-02-26 03:53:09 - 	Averaging across folds
+16-02-26 03:53:09 - 	DELETING TEMP FILES
+16-02-26 03:53:09 - 	Done!
+16-02-26 03:53:09 - 	Peak Memory Usage = 89930660 bytes
+16-02-26 03:53:11 - pc = 1, m = 9, k = 5, tf = REST
+16-02-26 03:53:11 - 	Creating Folds
+16-02-26 03:53:15 - 	Reading MLE matrices
+16-02-26 03:53:15 - 		Converting file 1 to fasta
+16-02-26 03:53:47 - 		Calculating MLE for file 1
+16-02-26 04:00:19 - 		Converting file 2 to fasta
+16-02-26 04:00:50 - 		Calculating MLE for file 2
+16-02-26 04:07:22 - 		Converting file 3 to fasta
+16-02-26 04:07:54 - 		Calculating MLE for file 3
+16-02-26 04:14:24 - 		Converting file 4 to fasta
+16-02-26 04:14:56 - 		Calculating MLE for file 4
+16-02-26 04:21:33 - 		Converting file 5 to fasta
+16-02-26 04:22:12 - 		Calculating MLE for file 5
+16-02-26 04:28:43 - 	Starting Calculation and Inference
+16-02-26 04:28:43 - 		Starting fold 1
+16-02-26 04:28:43 - 			Calculating Scores
+16-02-26 04:30:05 - 			Plotting Evaluation Metrics
+16-02-26 04:30:06 - 		Starting fold 2
+16-02-26 04:30:06 - 			Calculating Scores
+16-02-26 04:31:29 - 			Plotting Evaluation Metrics
+16-02-26 04:31:29 - 		Starting fold 3
+16-02-26 04:31:29 - 			Calculating Scores
+16-02-26 04:32:52 - 			Plotting Evaluation Metrics
+16-02-26 04:32:52 - 		Starting fold 4
+16-02-26 04:32:53 - 			Calculating Scores
+16-02-26 04:34:15 - 			Plotting Evaluation Metrics
+16-02-26 04:34:16 - 		Starting fold 5
+16-02-26 04:34:16 - 			Calculating Scores
+16-02-26 04:35:39 - 			Plotting Evaluation Metrics
+16-02-26 04:35:39 - 	Averaging across folds
+16-02-26 04:35:39 - 	DELETING TEMP FILES
+16-02-26 04:35:39 - 	Done!
+16-02-26 04:35:39 - 	Peak Memory Usage = 89791570 bytes
+16-02-26 04:35:40 - pc = 1, m = 9, k = 5, tf = EP300
+16-02-26 04:35:40 - 	Creating Folds
+16-02-26 04:35:44 - 	Reading MLE matrices
+16-02-26 04:35:44 - 		Converting file 1 to fasta
+16-02-26 04:36:16 - 		Calculating MLE for file 1
+16-02-26 04:42:48 - 		Converting file 2 to fasta
+16-02-26 04:43:21 - 		Calculating MLE for file 2
+16-02-26 04:49:51 - 		Converting file 3 to fasta
+16-02-26 04:50:24 - 		Calculating MLE for file 3
+16-02-26 04:56:51 - 		Converting file 4 to fasta
+16-02-26 04:57:23 - 		Calculating MLE for file 4
+16-02-26 05:03:51 - 		Converting file 5 to fasta
+16-02-26 05:04:23 - 		Calculating MLE for file 5
+16-02-26 05:10:52 - 	Starting Calculation and Inference
+16-02-26 05:10:52 - 		Starting fold 1
+16-02-26 05:10:52 - 			Calculating Scores
+16-02-26 05:12:14 - 			Plotting Evaluation Metrics
+16-02-26 05:12:15 - 		Starting fold 2
+16-02-26 05:12:15 - 			Calculating Scores
+16-02-26 05:13:38 - 			Plotting Evaluation Metrics
+16-02-26 05:13:38 - 		Starting fold 3
+16-02-26 05:13:38 - 			Calculating Scores
+16-02-26 05:15:01 - 			Plotting Evaluation Metrics
+16-02-26 05:15:01 - 		Starting fold 4
+16-02-26 05:15:01 - 			Calculating Scores
+16-02-26 05:16:24 - 			Plotting Evaluation Metrics
+16-02-26 05:16:24 - 		Starting fold 5
+16-02-26 05:16:24 - 			Calculating Scores
+16-02-26 05:17:46 - 			Plotting Evaluation Metrics
+16-02-26 05:17:47 - 	Averaging across folds
+16-02-26 05:17:47 - 	DELETING TEMP FILES
+16-02-26 05:17:47 - 	Done!
+16-02-26 05:17:47 - 	Peak Memory Usage = 89808145 bytes
+16-02-26 05:17:48 - pc = 1, m = 10, k = 5, tf = CTCF
+16-02-26 05:17:48 - 	Creating Folds
+16-02-26 05:17:52 - 	Reading MLE matrices
+16-02-26 05:17:52 - 		Converting file 1 to fasta
+16-02-26 05:18:24 - 		Calculating MLE for file 1
+16-02-26 05:26:20 - 		Converting file 2 to fasta
+16-02-26 05:26:59 - 		Calculating MLE for file 2
+16-02-26 05:34:56 - 		Converting file 3 to fasta
+16-02-26 05:35:28 - 		Calculating MLE for file 3
+16-02-26 05:43:24 - 		Converting file 4 to fasta
+16-02-26 05:43:58 - 		Calculating MLE for file 4
+16-02-26 05:51:54 - 		Converting file 5 to fasta
+16-02-26 05:52:25 - 		Calculating MLE for file 5
+16-02-26 06:00:21 - 	Starting Calculation and Inference
+16-02-26 06:00:21 - 		Starting fold 1
+16-02-26 06:00:21 - 			Calculating Scores
+16-02-26 06:01:56 - 			Plotting Evaluation Metrics
+16-02-26 06:01:57 - 		Starting fold 2
+16-02-26 06:01:57 - 			Calculating Scores
+16-02-26 06:03:32 - 			Plotting Evaluation Metrics
+16-02-26 06:03:33 - 		Starting fold 3
+16-02-26 06:03:33 - 			Calculating Scores
+16-02-26 06:05:08 - 			Plotting Evaluation Metrics
+16-02-26 06:05:09 - 		Starting fold 4
+16-02-26 06:05:09 - 			Calculating Scores
+16-02-26 06:06:44 - 			Plotting Evaluation Metrics
+16-02-26 06:06:44 - 		Starting fold 5
+16-02-26 06:06:47 - 			Calculating Scores
+16-02-26 06:08:22 - 			Plotting Evaluation Metrics
+16-02-26 06:08:22 - 	Averaging across folds
+16-02-26 06:08:22 - 	DELETING TEMP FILES
+16-02-26 06:08:22 - 	Done!
+16-02-26 06:08:22 - 	Peak Memory Usage = 274429400 bytes
+16-02-26 06:08:23 - pc = 1, m = 10, k = 5, tf = REST
+16-02-26 06:08:23 - 	Creating Folds
+16-02-26 06:08:27 - 	Reading MLE matrices
+16-02-26 06:08:27 - 		Converting file 1 to fasta
+16-02-26 06:08:59 - 		Calculating MLE for file 1
+16-02-26 06:16:47 - 		Converting file 2 to fasta
+16-02-26 06:17:18 - 		Calculating MLE for file 2
+16-02-26 06:25:02 - 		Converting file 3 to fasta
+16-02-26 06:25:36 - 		Calculating MLE for file 3
+16-02-26 06:33:21 - 		Converting file 4 to fasta
+16-02-26 06:33:51 - 		Calculating MLE for file 4
+16-02-26 06:41:36 - 		Converting file 5 to fasta
+16-02-26 06:42:08 - 		Calculating MLE for file 5
+16-02-26 06:49:51 - 	Starting Calculation and Inference
+16-02-26 06:49:51 - 		Starting fold 1
+16-02-26 06:49:52 - 			Calculating Scores
+16-02-26 06:51:25 - 			Plotting Evaluation Metrics
+16-02-26 06:51:25 - 		Starting fold 2
+16-02-26 06:51:27 - 			Calculating Scores
+16-02-26 06:52:59 - 			Plotting Evaluation Metrics
+16-02-26 06:53:00 - 		Starting fold 3
+16-02-26 06:53:00 - 			Calculating Scores
+16-02-26 06:54:32 - 			Plotting Evaluation Metrics
+16-02-26 06:54:33 - 		Starting fold 4
+16-02-26 06:54:33 - 			Calculating Scores
+16-02-26 06:56:05 - 			Plotting Evaluation Metrics
+16-02-26 06:56:05 - 		Starting fold 5
+16-02-26 06:56:06 - 			Calculating Scores
+16-02-26 06:57:38 - 			Plotting Evaluation Metrics
+16-02-26 06:57:38 - 	Averaging across folds
+16-02-26 06:57:38 - 	DELETING TEMP FILES
+16-02-26 06:57:38 - 	Done!
+16-02-26 06:57:38 - 	Peak Memory Usage = 274398926 bytes
+16-02-26 06:57:39 - pc = 1, m = 10, k = 5, tf = EP300
+16-02-26 06:57:39 - 	Creating Folds
+16-02-26 06:57:43 - 	Reading MLE matrices
+16-02-26 06:57:43 - 		Converting file 1 to fasta
+16-02-26 06:58:15 - 		Calculating MLE for file 1
+16-02-26 07:05:55 - 		Converting file 2 to fasta
+16-02-26 07:06:27 - 		Calculating MLE for file 2
+16-02-26 07:14:04 - 		Converting file 3 to fasta
+16-02-26 07:14:36 - 		Calculating MLE for file 3
+16-02-26 07:22:12 - 		Converting file 4 to fasta
+16-02-26 07:22:43 - 		Calculating MLE for file 4
+16-02-26 07:30:20 - 		Converting file 5 to fasta
+16-02-26 07:30:52 - 		Calculating MLE for file 5
+16-02-26 07:38:28 - 	Starting Calculation and Inference
+16-02-26 07:38:28 - 		Starting fold 1
+16-02-26 07:38:28 - 			Calculating Scores
+16-02-26 07:39:58 - 			Plotting Evaluation Metrics
+16-02-26 07:39:58 - 		Starting fold 2
+16-02-26 07:39:59 - 			Calculating Scores
+16-02-26 07:41:29 - 			Plotting Evaluation Metrics
+16-02-26 07:41:29 - 		Starting fold 3
+16-02-26 07:41:29 - 			Calculating Scores
+16-02-26 07:42:59 - 			Plotting Evaluation Metrics
+16-02-26 07:42:59 - 		Starting fold 4
+16-02-26 07:43:00 - 			Calculating Scores
+16-02-26 07:44:29 - 			Plotting Evaluation Metrics
+16-02-26 07:44:30 - 		Starting fold 5
+16-02-26 07:44:30 - 			Calculating Scores
+16-02-26 07:45:59 - 			Plotting Evaluation Metrics
+16-02-26 07:46:00 - 	Averaging across folds
+16-02-26 07:46:00 - 	DELETING TEMP FILES
+16-02-26 07:46:00 - 	Done!
+16-02-26 07:46:00 - 	Peak Memory Usage = 274341818 bytes

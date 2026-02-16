@@ -162,9 +162,10 @@ def main():
     
     tracemalloc.start()
     markov_predict(in_tsv_path, out_path, pseudocounts= pc, m= m, k= k, tf= tf, force_recalculate= fr, store_files= s)
+    trm = tracemalloc.get_tracemalloc_memory()
     _, peak = tracemalloc.get_traced_memory()
     tracemalloc.stop()
-    logging.info(f"\tPeak Memory Usage = {peak} bytes")
+    logging.info(f"\tPeak Memory Usage = {peak-trm} bytes")
 
 if __name__ == '__main__':
     main()
