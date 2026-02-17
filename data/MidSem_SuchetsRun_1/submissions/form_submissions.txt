@@ -1,0 +1,12 @@
+ROC:
+0.723, 0.735, 0.738, 0.745, 0.750, 0.755, 0.744, 0.722, 0.713, 0.717, 0.715
+Max = Order 5
+
+PRC:
+0.0306, 0.0351, 0.0361, 0.0360, 0.0365, 0.0379, 0.0387, 0.0380, 0.0381, 0.0361, 0.0337
+Max = Order 6
+
+Time:
+522,  658,  837,  996, 1162, 1399, 1603, 1842, 2177, 3134, 3034
+
+Time complexity is technically O(4**m) because adding pseudocounts for all 4**m m-mers requires an exponential number of operations, but likely the coefficient of 4**m is small and hence the trend appears to be quadratic.

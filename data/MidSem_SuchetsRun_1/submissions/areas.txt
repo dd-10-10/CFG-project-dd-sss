@@ -1,0 +1,43 @@
+==> Area_chr4_200bp_bins_m=0_k=5_tf=CTCF.txt <==
+ROC average area=  0.7230600535894555
+PRC average area=  0.03062453229461099
+
+==> Area_chr4_200bp_bins_m=10_k=5_tf=CTCF.txt <==
+ROC average area=  0.7147394345756165
+PRC average area=  0.03373529231636271
+
+==> Area_chr4_200bp_bins_m=1_k=5_tf=CTCF.txt <==
+ROC average area=  0.7346629106297026
+PRC average area=  0.03513479632177951
+
+==> Area_chr4_200bp_bins_m=2_k=5_tf=CTCF.txt <==
+ROC average area=  0.7383457527995899
+PRC average area=  0.036098349726852705
+
+==> Area_chr4_200bp_bins_m=3_k=5_tf=CTCF.txt <==
+ROC average area=  0.7449035322606798
+PRC average area=  0.03597275789218903
+
+==> Area_chr4_200bp_bins_m=4_k=5_tf=CTCF.txt <==
+ROC average area=  0.7499909907780773
+PRC average area=  0.03651349299723804
+
+==> Area_chr4_200bp_bins_m=5_k=5_tf=CTCF.txt <==
+ROC average area=  0.7549301330503655
+PRC average area=  0.03792448679288545
+
+==> Area_chr4_200bp_bins_m=6_k=5_tf=CTCF.txt <==
+ROC average area=  0.7442503965096265
+PRC average area=  0.03867257128898337
+
+==> Area_chr4_200bp_bins_m=7_k=5_tf=CTCF.txt <==
+ROC average area=  0.7219550287138783
+PRC average area=  0.03799125339019428
+
+==> Area_chr4_200bp_bins_m=8_k=5_tf=CTCF.txt <==
+ROC average area=  0.7133473932944131
+PRC average area=  0.038074100809559065
+
+==> Area_chr4_200bp_bins_m=9_k=5_tf=CTCF.txt <==
+ROC average area=  0.7174454061993799
+PRC average area=  0.036106108518767374

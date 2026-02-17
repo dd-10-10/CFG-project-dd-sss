@@ -41,10 +41,10 @@ for m, temp in enumerate(logs):
 
         time[tf][m] = (end - start).total_seconds() # in seconds
         memory[tf][m] = int(line[1].split(' ')[-2])/(1024*1024) # in MB
+print(time)
 
 X = np.linspace(0, 10, 1000)
 plt.figure(0, figsize=(6,6))
-
 plt.plot(range(11), time.T, label = ['CTCF', 'REST', 'EP300'])
 
 avg_time_complexity = np.polyfit(range(11), time.mean(axis=0), deg=2)
