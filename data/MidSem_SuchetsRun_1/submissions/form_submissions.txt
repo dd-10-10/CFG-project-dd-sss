@@ -10,3 +10,4 @@ Time:
 522,  658,  837,  996, 1162, 1399, 1603, 1842, 2177, 3134, 3034
 
 Time complexity is technically O(4**m) because adding pseudocounts for all 4**m m-mers requires an exponential number of operations, but likely the coefficient of 4**m is small and hence the trend appears to be quadratic.
+Memory usage is exponential (O(4**m)), because counts for 4**m m-mers are stored.
