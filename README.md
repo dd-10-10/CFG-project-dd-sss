@@ -26,16 +26,27 @@ To run the program for chromosome 4, run the following command in terminal:\
 For more information and optional arguments, run the following command in terminal:\
 `python pythonScripts/run_me.py -h`
 
+A simpler version of the program is also present. This version takes a fasta file as input, trains a Markov model on all sequences, and outputs scores for the same sequences. To run this version, run the following command in terminal:\
+`python pythonScripts/simplerVersion.py path/to/input_fasta <m>`
+
+For more information, run the following command in terminal:\
+`python pythonScripts/simplerVersion.py -h`
+
 ## Structure
 - `data`
-    - `Midsem_Eval`: files and directories for submission
     - `Output`: default output location
-    - `temp`: intermediate storage location for .fa and .npy files
     - `tsv`: input tsv files
+    - `MidSem_Eval`, `MidSem_SuchetsRun_1`, `Out`, `Output_4_5_CTCF`, `custom_test_seqs.fa`, `logs.txt`: various files and directories created for personal testing
 - `pythonScripts`
     - `run_me.py`: the main program, which accomplishes the stated task using the other scripts
+    - `simplerVersion.py`: a simpler version of the program with fewer capabilities
     - `globals.py`: a file containing some useful variables for reference elsewhere
     - `tsv_to_fasta.py`: script to extract fasta files from input tsv files
     - `create_cv_folds.py`: script to create training/ validation folds from input data
     - `markov_mle.py`: script to train a markov model on training data
     - `markov_score.py`: script to calculate log-odds score for input testing data, based on markov mle arrays
+    - `plot_trends.py`: script to plot trends of ROC curves, PR curves, time complexity, and space complexity
+    - `custom_data_test.py`: script written for personal testing and troubleshooting
+- `runAll_ch4.sh`: bash script to run the program for m= [0, 10] for all three transcription factors
+- `README.md`: the file you are reading!
+- `.gitignore`: file that contains list of files for git to ignore

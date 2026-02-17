@@ -68,9 +68,9 @@ def simpler_model(in_fasta_path:Path, m: int) -> None:
     return scores
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("in_path", help = "Path to input fasta file")
-    parser.add_argument('m', help = "Order of the markov model", type=int)
+    parser = argparse.ArgumentParser(prog= "pythonScripts/simplerVersion.py")
+    parser.add_argument("in_path", help = "path to input fasta file")
+    parser.add_argument('m', help = "order of the markov model", type=int)
     args = parser.parse_args()
     in_path = Path(args.in_path)
     scores = simpler_model(in_path, args.m)
