@@ -2,3 +2,4 @@ data/hg38*
 pythonScripts/__pycache__/*
 data/temp/*
 data/Output/*
+data/MidSem_Eval/time_check.py
