@@ -1,7 +1,12 @@
 from pathlib import Path
 from datetime import datetime
 import numpy as np
+from numpy import polyfit
 import matplotlib.pyplot as plt
+
+def quadratic(x, a, b, c):
+    return a*x*x + b*x + c
+quadratic = np.vectorize(quadratic)
 
 log_file = Path("data/MidSem_SuchetsRun_1/logs.txt")
 
@@ -13,8 +18,8 @@ with open(log_file, 'r') as f:
 logs = np.array(logs).reshape(11, 3, 2)
 
 # Time and Memory
-time = np.zeros((11, 3))
-memory = np.zeros((11, 3))
+time = np.zeros((3, 11))
+memory = np.zeros((3, 11))
 
 for m, temp in enumerate(logs):
     for tf, line in enumerate(temp):
@@ -34,11 +39,17 @@ for m, temp in enumerate(logs):
         second = int(line[1][15:17])
         end = datetime(year = year, month=month, day=day, hour=hour, minute=minute, second=second)
 
-        time[m][tf] = (end - start).total_seconds() # in seconds
-        memory[m][tf] = int(line[1].split(' ')[-2])/(1024*1024) # in MB
+        time[tf][m] = (end - start).total_seconds() # in seconds
+        memory[tf][m] = int(line[1].split(' ')[-2])/(1024*1024) # in MB
 
+X = np.linspace(0, 10, 1000)
 plt.figure(0, figsize=(6,6))
-plt.plot(range(11), time, label = ['CTCF', 'REST', 'EP300'])
+
+plt.plot(range(11), time.T, label = ['CTCF', 'REST', 'EP300'])
+
+avg_time_complexity = np.polyfit(range(11), time.mean(axis=0), deg=2)
+plt.plot(X, quadratic(X, *avg_time_complexity), 'k--', label = f"$O(m^2)$ fit")
+
 plt.title("Time Taken")
 plt.xlabel("Order of the Markov Model")
 plt.ylabel("Time (seconds)")
@@ -47,7 +58,7 @@ plt.tight_layout()
 plt.savefig(Path("data/MidSem_SuchetsRun_1/TimeTaken.png"))
 
 plt.figure(1, figsize=(6,6))
-plt.plot(range(11), memory, label = ['CTCF', 'REST', 'EP300'])
+plt.plot(range(11), memory.T, label = ['CTCF', 'REST', 'EP300'])
 plt.title("Space Used")
 plt.xlabel("Order of the Markov Model")
 plt.ylabel("Memory (MB)")
