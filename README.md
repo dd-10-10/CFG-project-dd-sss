@@ -21,23 +21,23 @@ Next, to unzip the file, run:\
 
 ## Usage
 To run the program for chromosome 4, run the following command in terminal:\
-`python pythonScripts/run_me.py data/tsv/chr4_200bp_bins.tsv path/to/output_dir <m> <k> <tf>`
+`python MarkovScripts/run_me.py data/tsv/chr4_200bp_bins.tsv path/to/output_dir <m> <k> <tf>`
 
 For more information and optional arguments, run the following command in terminal:\
-`python pythonScripts/run_me.py -h`
+`python MarkovScripts/run_me.py -h`
 
 A simpler version of the program is also present. This version takes a fasta file as input, trains a Markov model on all sequences, and outputs scores for the same sequences. To run this version, run the following command in terminal:\
-`python pythonScripts/simplerVersion.py path/to/input_fasta <m>`
+`python MarkovScripts/simplerVersion.py path/to/input_fasta <m>`
 
 For more information, run the following command in terminal:\
-`python pythonScripts/simplerVersion.py -h`
+`python MarkovScripts/simplerVersion.py -h`
 
 ## Structure
 - `data`
     - `Output`: default output location
     - `tsv`: input tsv files
     - `MidSem_Eval`, `MidSem_SuchetsRun_1`, `Out`, `Output_4_5_CTCF`, `custom_test_seqs.fa`, `logs.txt`: various files and directories created for personal testing
-- `pythonScripts`
+- `MarkovScripts`
     - `run_me.py`: the main program, which accomplishes the stated task using the other scripts
     - `simplerVersion.py`: a simpler version of the program with fewer capabilities
     - `globals.py`: a file containing some useful variables for reference elsewhere
