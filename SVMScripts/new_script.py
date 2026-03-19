@@ -24,34 +24,49 @@ def seq_vec(file, k):
     vecs= []
     for record in SeqIO.parse(file, "fasta"):
         kmer= seq_kmer_count(k, str(record.seq))
-        vecs.append(kmer)
+        vec= np.zeros(4**k + 1)
+        vec[:-1]= kmer
+        if record.id[-4] == "B":
+            vec[-1]= 1
+        else:
+            vec[-1]= 0
+        vecs.append(vec)
         ids.append(record.id[-1])
-        atac.append(record.id[-4])
-    vecs= np.array(vecs)
-    return atac, ids, vecs
+    vecs= np.array(vecs, dtype= np.float16)
+    return ids, vecs
 
-def kmer_svm(file, k):
+def kernel(v1, v2, w):
+    '''
+    Custom kernel function, to calculate similarity between v1 and v2 as dot product for all non-ATAC dimensions,
+    then use XOR to calculate ATAC similarity and weight it by w.
+    '''
+    x= np.dot(v1[:, :-1], v2[:, :-1].T)
+    y= (1 - abs(v1[:, -1] - v2[:, -1])) * w
+    return x * y
+
+def kmer_svm(file, k, w):
     '''
     Function to perform k-mer svm with data in file
     '''
-    atac, ids, vecs= seq_vec(file, k)
-    mmc= svm.SVC(kernel= "linear")
+    ids, vecs= seq_vec(file, k)
+    mmc= svm.SVC(kernel= lambda v1, v2: kernel(v1, v2, w))
     mmc.fit(vecs, ids)
     return mmc
 
-def test(file, t_file, k):
+def test(file, t_file, k, w):
     '''
     Test function
     '''
-    clfr= kmer_svm(file, k)
-    t_atac, t_ids, t_vecs= seq_vec(t_file, k)
+    clfr= kmer_svm(file, k, w)
+    t_ids, t_vecs= seq_vec(t_file, k)
     t_pred= clfr.predict(t_vecs)
     match= t_pred== t_ids
     acc= match.sum()/len(match)
     return acc, t_ids
 
 if __name__== "__main__":
-    file= "data/custom_test_seqs.fa"
-    t_file= "data/custom_test_seqs.fa"
+    file= "data/temp/chr4_200bp_bins_CTCF_5.fa"
+    t_file= "data/temp/chr4_200bp_bins_CTCF_5.fa"
     k= 2
-    print(test(file, t_file, k)[0])
+    w= 10
+    print(test(file, t_file, k, w)[0])
