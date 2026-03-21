@@ -1,0 +1,23 @@
+AC MA1102.3
+XX
+ID CTCFL
+XX
+DE MA1102.3 CTCFL ; From JASPAR
+PO	A	C	G	T
+01	1301.0	12867.0	2033.0	1836.0
+02	17270.0	413.0	329.0	25.0
+03	86.0	481.0	17285.0	185.0
+04	684.0	600.0	16511.0	242.0
+05	349.0	1141.0	15425.0	1122.0
+06	193.0	767.0	16819.0	258.0
+07	351.0	270.0	17001.0	415.0
+08	181.0	17593.0	68.0	195.0
+XX
+CC tax_group:vertebrates
+CC tf_family:More than 3 adjacent zinc fingers
+CC tf_class:C2H2 zinc finger factors
+CC pubmed_ids:26268681
+CC uniprot_ids:Q8NI51
+CC data_type:ChIP-seq
+XX
+//

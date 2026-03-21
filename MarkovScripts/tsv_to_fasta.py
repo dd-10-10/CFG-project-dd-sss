@@ -30,8 +30,9 @@ def main():
     DATA_FOLDER = Path("data/tsv")
     GENOME_FASTA = Path("data/hg38.fa")
     for file in os.listdir(DATA_FOLDER):
-        if file.endswith(".tsv"):
-            tsv_to_fasta(TSV_FOLDER / file)
+        if file.endswith("bins.tsv"):
+            tsv_to_fasta(DATA_FOLDER / file)
+            break
     return
 
 if __name__ == "__main__":
