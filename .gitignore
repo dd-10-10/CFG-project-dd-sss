@@ -1,6 +1,7 @@
 data/hg38*
 MarkovScripts/__pycache__/*
 SVMScripts/__pycache__/*
+NNScripts/__pycache__/*
 data/temp/*
 data/Output/*
 data/MidSem_Eval/time_check.py
