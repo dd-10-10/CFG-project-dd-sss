@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from SVMScripts.svm_script import *
+from svm_script import test
 
 def test_w(file, t_file, k):
     w_arr= np.arange(0.5, 5, 0.5)
