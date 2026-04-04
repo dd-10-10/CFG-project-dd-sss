@@ -19,7 +19,6 @@ def seq_vec(file, k):
     '''
     Function to make vectors from k-mers for sequences in file
     '''
-    atac= []
     ids= []
     vecs= []
     for record in SeqIO.parse(file, "fasta"):
