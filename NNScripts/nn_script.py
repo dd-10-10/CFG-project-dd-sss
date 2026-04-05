@@ -28,10 +28,10 @@ class ConvNetwork(nn.Module):
 
     def forward(self, x):
         x = self.conv1(x)
-        x = nn.functional.celu(x)
+        x = nn.functional.relu(x)
         x = nn.functional.max_pool1d(x, 3)
         x = self.conv2(x)
-        x = nn.functional.gelu(x)
+        x = nn.functional.relu(x)
         x = nn.functional.max_pool1d(x, 3)
         x = self.flatten(x)
         x = self.linear(x)
@@ -47,12 +47,15 @@ def one_hot(seq: str) -> np.ndarray:
 def read_data(filename: Path) -> tuple[np.ndarray, np.ndarray]:
     seqs = []
     ids = []
+    atac = []
     for record in SeqIO.parse(filename, 'fasta'):
         seqs.append(one_hot(record.seq))
         ids.append([1 if i=='B' else 0 for i in record.id[-3:]])
+        atac.append(1 if record.id[-4]=='B' else 0)
     seqs = np.array(seqs)
     ids = np.array(ids)
-    return seqs, ids
+    atac = np.array(atac)
+    return seqs, ids, atac
 
 def train(net: ConvNetwork | DenseNetwork, x: torch.Tensor, y:torch.Tensor) -> ConvNetwork | DenseNetwork:
     criterion = nn.CrossEntropyLoss()
@@ -70,9 +73,13 @@ def train(net: ConvNetwork | DenseNetwork, x: torch.Tensor, y:torch.Tensor) -> C
 
 def main() -> None:
     filename = Path("data/tsv/chr11_200bp_bins.fa")
-    seqs, ids = read_data(filename)
+    seqs, ids, atac = read_data(filename)
+    
     seqs = torch.tensor(seqs, dtype=torch.float32).reshape(-1, 4, 200).to(device='cuda')
     ids = torch.tensor(ids, dtype=torch.float32).reshape(-1, 3).to(device='cuda')
+    atac = torch.tensor(atac, dtype=torch.float32).reshape(-1, -1, 200).to(device='cuda')
+    
+    seqs = torch.concat([seqs, atac], dim=2).to(device='cuda')
 
     print(seqs.shape)
     print(ids.shape)

@@ -31,6 +31,7 @@ def seq_vec(file, k):
             vec[-1]= 0
         vecs.append(vec)
         ids.append(record.id[-1])
+    ids = np.array(ids)
     vecs= np.array(vecs, dtype= np.float16)
     return ids, vecs
 
@@ -40,8 +41,9 @@ def kernel(v1, v2, w):
     then use XOR to calculate ATAC similarity and weight it by w.
     '''
     x= np.dot(v1[:, :-1], v2[:, :-1].T)
+    x/= v1.shape[1]-1
     y= (1 - abs(v1[:, -1] - v2[:, -1])) * w
-    return x * y
+    return x+y
 
 def kmer_svm(file, k, w):
     '''
