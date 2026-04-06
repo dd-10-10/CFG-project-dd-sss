@@ -30,7 +30,7 @@ def seq_vec(file, k):
         else:
             vec[-1]= 0
         vecs.append(vec)
-        ids.append(record.id[-1])
+        ids.append(record.id[-3])
     ids = np.array(ids)
     vecs= np.array(vecs, dtype= np.float16)
     return ids, vecs
@@ -50,7 +50,7 @@ def kmer_svm(file, k, w):
     Function to perform k-mer svm with data in file
     '''
     ids, vecs= seq_vec(file, k)
-    mmc= svm.SVC(kernel= lambda v1, v2: kernel(v1, v2, w))
+    mmc= svm.SVC(kernel= 'linear')#lambda v1, v2: kernel(v1, v2, w))
     mmc.fit(vecs, ids)
     return mmc
 
@@ -68,6 +68,6 @@ def test(file, t_file, k, w):
 if __name__== "__main__":
     file= "data/temp/chr4_200bp_bins_CTCF_5.fa"
     t_file= "data/temp/chr4_200bp_bins_CTCF_5.fa"
-    k= 2
+    k= 6
     w= 10
     print(test(file, t_file, k, w)[0])
