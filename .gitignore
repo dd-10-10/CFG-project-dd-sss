@@ -6,3 +6,4 @@ data/temp/*
 data/Output/*
 data/MidSem_Eval/time_check.py
 .vscode/*
+data/tsv/chrAll*
