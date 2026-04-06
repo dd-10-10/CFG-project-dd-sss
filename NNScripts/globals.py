@@ -1,4 +1,11 @@
 from pathlib import Path
+import torch
+
+#============================================
+BATCH_SIZE = 8192
+#============================================
+
+device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 base_dict = {'A':0, 'C':1, 'G':2, 'T':3, 'a':0, 'c':1, 'g':2, 't':3}
 tf_dict= {"ATAC": 0, "CTCF": 1, "REST":2, "EP300":3}
 genome_path = Path("data/hg38.fa")
