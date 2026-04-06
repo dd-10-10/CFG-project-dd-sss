@@ -19,8 +19,13 @@ def tsv_to_fasta(in_tsv_path:Path, force_recalculate: bool = False) -> None:
     out_fa = in_tsv_path.parent / f"{in_tsv_path.stem}.fa"
     if out_fa.exists() and not force_recalculate:
         return
-    df = pd.read_csv(in_tsv_path, sep="\t", dtype={'chr':str, 'start':int, 'end':int, "ATAC":str, 'CTCF':str, "REST":str, 'EP300':str})
-    df['name'] = df['chr'] + ":" + df['start'].astype(str) + "-" + df['end'].astype(str) + "_" + df['ATAC'] + df['CTCF'] + df['REST'] + df['EP300']
+    try:
+        df = pd.read_csv(in_tsv_path, sep="\t", dtype={'chr':str, 'start':int, 'end':int, "ATAC":str, 'CTCF':str, "REST":str, 'EP300':str})
+        df['name'] = df['chr'] + ":" + df['start'].astype(str) + "-" + df['end'].astype(str) + "_" + df['ATAC'] + df['CTCF'] + df['REST'] + df['EP300']
+    except:
+        df = pd.read_csv(in_tsv_path, sep="\t", dtype={'chr':str, 'start':int, 'end':int, "ATAC":str})
+        df['name'] = df['chr'] + ":" + df['start'].astype(str) + "-" + df['end'].astype(str) + "_" + df['ATAC']
+
     df = df[['chr', 'start', 'end', 'name']]
     a = pybedtools.BedTool(df.values.tolist())
     a = a.sequence(fi=genome_path, fo = out_fa, nameOnly=True)
@@ -28,11 +33,12 @@ def tsv_to_fasta(in_tsv_path:Path, force_recalculate: bool = False) -> None:
 
 def main():
     DATA_FOLDER = Path("data/tsv")
-    GENOME_FASTA = Path("data/hg38.fa")
-    for file in os.listdir(DATA_FOLDER):
-        if file.endswith("bins.tsv"):
-            tsv_to_fasta(DATA_FOLDER / file)
-            break
+    for file in DATA_FOLDER.iterdir():
+        if file.suffix == ".tsv" and not Path(file.parent / f"{file.stem}.fa").exists() :
+            print(f"Starting File: {file.name}")
+            tsv_to_fasta(file)
+        else:
+            print(f"\tSkipping {file.name}")
     return
 
 if __name__ == "__main__":
