@@ -2,7 +2,7 @@ from pathlib import Path
 import torch
 
 #============================================
-BATCH_SIZE = 8192
+BATCH_SIZE = 2048
 #============================================
 
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')

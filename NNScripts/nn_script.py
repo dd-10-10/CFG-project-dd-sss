@@ -67,17 +67,17 @@ class FastaMapDataset(Dataset):
                     pass
             return vec
 
-        record = self.records[idx]
+        seq, id = self.records[idx]
         
-        seq = torch.tensor(one_hot(record.seq), dtype=torch.float32)
-        ids = torch.tensor([1 if i == 'B' else 0 for i in record.id[-3:]], dtype=torch.float32)
-        atac = torch.full((200, 1), 1 if record.id[-4] == 'B' else 0, dtype=torch.float32)
+        seq = torch.tensor(one_hot(seq), dtype=torch.float32)
+        ids = torch.tensor([1 if i == 'B' else 0 for i in id[-3:]], dtype=torch.float32)
+        atac = torch.full((200, 1), 1 if id[-4] == 'B' else 0, dtype=torch.float32)
         
         seq = torch.concat([seq, atac], dim=1).transpose(0, 1)
         return seq, ids
 
 def load_data(fasta_path:Path) -> tuple[DataLoader, DataLoader, DataLoader]:
-    all_records = list(SeqIO.parse(fasta_path, 'fasta'))
+    all_records = [[record.seq, record.id] for record in SeqIO.parse(fasta_path, 'fasta')]
     train_records, temp_records = train_test_split(all_records, test_size=0.3, random_state=42)
     val_records, test_records = train_test_split(temp_records, test_size=0.5, random_state=42)
     
@@ -85,15 +85,15 @@ def load_data(fasta_path:Path) -> tuple[DataLoader, DataLoader, DataLoader]:
     val_dataset = FastaMapDataset(val_records)
     test_dataset = FastaMapDataset(test_records)
     
-    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, pin_memory=True)
-    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, pin_memory=True)
-    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, pin_memory=True)
+    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, pin_memory=True, num_workers=2, persistent_workers=True)
+    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, pin_memory=True, num_workers=2, persistent_workers=True)
+    test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False, pin_memory=True, num_workers=2, persistent_workers=True)
     
     return train_loader, val_loader, test_loader
 
 def train(net: ConvNetwork | DenseNetwork, data_loaders: tuple) -> ConvNetwork | DenseNetwork:
     criterion = nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(net.parameters(), lr=1e-4)
+    optimizer = torch.optim.Adam(net.parameters(), lr=1e-3)
     train_loader, val_loader, test_loader = data_loaders
     logging.info("Epoch\tTrain_Loss\tVal_Loss")
     
@@ -127,6 +127,7 @@ def train(net: ConvNetwork | DenseNetwork, data_loaders: tuple) -> ConvNetwork |
 
         if epoch % 1 == 0:
             logging.info(f"{epoch+1:<3}:\t{running_train_loss}\t{running_val_loss}")
+            torch.save(net.state_dict(), f"NNScripts/models/Epoch{epoch}_TL{running_train_loss}_VL{running_val_loss}.pth")
     
     net.eval()
     running_test_loss = 0.0
