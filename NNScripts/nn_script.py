@@ -8,7 +8,7 @@ from torch.utils.data import Dataset, DataLoader
 from sklearn.model_selection import train_test_split
 from Bio import SeqIO
 
-from globals import base_dict, BATCH_SIZE, device
+from globals import base_dict, BATCH_SIZE, device, NUM_EPOCHS, LEARNING_RATE
 
 logging.basicConfig(filename='NNScripts/progress.log', filemode='a',
                     format='%(asctime)s\t%(message)s', level=logging.INFO)
@@ -16,7 +16,8 @@ class DenseNetwork(nn.Module):
     def __init__(self):
         super(DenseNetwork, self).__init__()
         self.model = nn.Sequential(
-            nn.Linear(200*4, 400), # ATAC not accounted for
+            nn.Flatten(),
+            nn.Linear(200*5, 400), # ATAC not accounted for
             nn.ReLU(),
             nn.Linear(400, 3),
             nn.Sigmoid()
@@ -30,18 +31,24 @@ class ConvNetwork(nn.Module):
     def __init__(self):
         super(ConvNetwork, self).__init__()
         self.convLayers = nn.Sequential(
-            nn.Conv1d(5, 20, 11, 5), # 5th channel for ATAC
+            nn.Conv1d(5, 20, 11, 1, 5), # 5th channel for ATAC
             nn.ReLU(),
             nn.MaxPool1d(2),
 
-            nn.Conv1d(20, 100, 7, 3),
+            nn.Conv1d(20, 100, 7, 1, 3),
+            nn.ReLU(),
+            nn.MaxPool1d(2),
+            
+            nn.Conv1d(100, 300, 5, 1, 2),
             nn.ReLU(),
             nn.MaxPool1d(2)
         )
         self.flatten = nn.Flatten()
         self.linearLayer = nn.Sequential(
-            nn.Linear(200, 3),
-            nn.Sigmoid(),
+            nn.Linear(7500, 1000),
+            nn.ReLU(),
+            nn.Linear(1000, 3),
+            nn.Sigmoid()
         )
 
     def forward(self, x):
@@ -93,11 +100,13 @@ def load_data(fasta_path:Path) -> tuple[DataLoader, DataLoader, DataLoader]:
 
 def train(net: ConvNetwork | DenseNetwork, data_loaders: tuple) -> ConvNetwork | DenseNetwork:
     criterion = nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(net.parameters(), lr=1e-3)
+    optimizer = torch.optim.Adam(net.parameters(), lr=LEARNING_RATE)
     train_loader, val_loader, test_loader = data_loaders
     logging.info("Epoch\tTrain_Loss\tVal_Loss")
     
-    for epoch in range(10):
+    running_train_loss = 0.0
+    running_val_loss = 0.0
+    for epoch in range(NUM_EPOCHS):
         print(f"Starting Epoch {epoch+1}")
         net.train()
         running_train_loss = 0.0
@@ -125,9 +134,9 @@ def train(net: ConvNetwork | DenseNetwork, data_loaders: tuple) -> ConvNetwork |
             running_val_loss += val_loss.item()
         running_val_loss /= (batch+1)
 
-        if epoch % 1 == 0:
+        if epoch % 5 == 0:
             logging.info(f"{epoch+1:<3}:\t{running_train_loss}\t{running_val_loss}")
-            torch.save(net.state_dict(), f"NNScripts/models/Epoch{epoch}_TL{running_train_loss}_VL{running_val_loss}.pth")
+            torch.save(net.state_dict(), f"NNScripts/models/Dense_Epoch{epoch+1}_TL_{running_train_loss}_VL_{running_val_loss}.pth")
     
     net.eval()
     running_test_loss = 0.0
@@ -140,19 +149,22 @@ def train(net: ConvNetwork | DenseNetwork, data_loaders: tuple) -> ConvNetwork |
         running_test_loss += test_loss.item()
     running_test_loss /= (batch + 1)
     print(f'\nTest Loss={running_test_loss}')
-    
+    torch.save(net.state_dict(), f"NNScripts/models/Final_TL_{running_train_loss}_VL_{running_val_loss}_TL{running_test_loss}.pth")
     return net
 
 def main() -> None:
+    net = DenseNetwork().to(device)
+    assert net(torch.zeros((1, 5, 200)).to(device)).shape == (1, 3), "Shape Mismatch"
+    try:
+        Path(f"NNScripts/models").mkdir()
+    except:
+        pass
     print("Building Data Structure")
     fasta_path = Path("data/tsv/chrAll.fa")
     train_loader, val_loader, test_loader = load_data(fasta_path)
     
     print("Start Training")
-    net = ConvNetwork().to(device)
     net = train(net, (train_loader, val_loader, test_loader))
-    
-    torch.save(net.state_dict(), "NNScripts/model1.pth")
     return
 
 if __name__ == '__main__':

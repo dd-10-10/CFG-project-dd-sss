@@ -2,7 +2,9 @@ from pathlib import Path
 import torch
 
 #============================================
-BATCH_SIZE = 2048
+BATCH_SIZE = 1048
+NUM_EPOCHS = 2000
+LEARNING_RATE = 1e-3
 #============================================
 
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
