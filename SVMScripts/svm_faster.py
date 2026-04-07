@@ -73,5 +73,5 @@ if __name__== "__main__":
     # Point these to your actual 90k sequence files
     file = Path("data/temp/chr4_200bp_bins_CTCF_5.fa")
     t_file = Path("data/temp/chr1_200bp_bins_CTCF_1.fa")
-    k = 6
+    k = 4
     tune_w_linear(file, t_file, k)

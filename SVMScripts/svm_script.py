@@ -1,3 +1,4 @@
+import time
 import numpy as np
 import pandas as pd
 import sklearn.svm as svm
@@ -22,7 +23,10 @@ def seq_vec(file, k):
     ids= []
     vecs= []
     for record in SeqIO.parse(file, "fasta"):
-        kmer= seq_kmer_count(k, str(record.seq))
+        try:
+            kmer= seq_kmer_count(k, str(record.seq))
+        except:
+            continue
         vec= np.zeros(4**k + 1)
         vec[:-1]= kmer
         if record.id[-4] == "B":
@@ -45,29 +49,36 @@ def kernel(v1, v2, w):
     y= (1 - abs(v1[:, -1] - v2[:, -1])) * w
     return x+y
 
-def kmer_svm(file, k, w):
+def kmer_svm(file, k):
     '''
     Function to perform k-mer svm with data in file
     '''
+    print(time.time(), " Vectorising training sequences")
     ids, vecs= seq_vec(file, k)
+    print(time.time(), " Vectorisation done, beginning fitting")
     mmc= svm.SVC(kernel= 'linear')#lambda v1, v2: kernel(v1, v2, w))
     mmc.fit(vecs, ids)
+    print(time.time(), " Fitting done")
     return mmc
 
-def test(file, t_file, k, w):
+def test(file, t_file, k):
     '''
     Test function
     '''
-    clfr= kmer_svm(file, k, w)
+    clfr= kmer_svm(file, k)
+    print(time.time(), " Vectorising test sequences")
     t_ids, t_vecs= seq_vec(t_file, k)
+    print(time.time(), " Vectorisation done, beginning predictions")
     t_pred= clfr.predict(t_vecs)
+    print(time.time(), " Predictions done")
     match= t_pred== t_ids
     acc= match.sum()/len(match)
     return acc, t_ids
 
 if __name__== "__main__":
-    file= "data/temp/chr4_200bp_bins_CTCF_5.fa"
-    t_file= "data/temp/chr4_200bp_bins_CTCF_5.fa"
-    k= 6
-    w= 10
-    print(test(file, t_file, k, w)[0])
+    file= "data/tsv/chrAll.fa"
+    t_file= "data/tsv/chrAll_unknown.fa"
+    k= 1
+    print(time.time(), " Start")
+    print(test(file, t_file, k)[0])
+    print(time.time(), " End")
