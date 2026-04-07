@@ -1,12 +1,12 @@
 from pathlib import Path
 import numpy as np
-from Bio import SeqIO
-from Bio import motifs
+from Bio import SeqIO, motifs
 import torch
 from torch import nn
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, precision_recall_curve, auc
 import time
+import pandas as pd
 
 base_dict = {'A':0, 'C':1, 'G':2, 'T':3, 'a':0, 'c':1, 'g':2, 't':3}
 
@@ -39,8 +39,8 @@ class model(nn.Module):
     def forward(self, x):
         x = self.conv(x)
         x = self.maxpool(x)
-        return x.view(-1, 1) 
-    
+        return x.view(-1, 1)
+
 def scan_motifs(sequence, pwm):
     # Convert the sequence to one-hot encoding
     one_hot_seq = np.array([one_hot(i) for i in sequence])
@@ -63,14 +63,21 @@ def read_fasta(file_path):
 
 def main():
     start = time.time()
-    file = Path('data/tsv/chrAll.fa')
+    train = False
+    if train:
+        file = Path('data/tsv/chr6_200bp_bins.fa')
+    else:
+        file = Path('data/tsv/chr3_200bp_bins_unknown.fa')
+        file = Path('data/tsv/chr10_200bp_bins_unknown.fa')
+        file = Path('data/tsv/chr17_200bp_bins_unknown.fa')
+    
     print('Reading sequences from file...')
     sequences, ids = read_fasta(file)
     ids = [i[-3] for i in ids]
     print(f'Read {len(sequences)} sequences.')
     
     print('Parsing motif from JASPAR')
-    with open("data/JASPAR/MA0139.2.pfm") as handle: # MA0139.2 for CTCF
+    with open("data/JASPAR/MA0138.2.pfm") as handle: # MA0139.2 for CTCF, MA0138.2 for REST
         motif = motifs.read(handle, "pfm")
     
     pwm = motif.counts.normalize(pseudocounts=0.1).log_odds()
@@ -81,13 +88,24 @@ def main():
     scores = scan_motifs(sequences, pwm)
     print(scores.shape, 'scores calculated.')
     
-    print('Evaluating')
-    fpr, tpr, _ = roc_curve(ids, scores, pos_label='B')
-    precision, recall, _ = precision_recall_curve(ids, scores, pos_label='B')
-    roc_auc = auc(fpr, tpr)
-    pr_auc = auc(recall, precision)
-    print(f'ROC AUC: {roc_auc:.4f}')
-    print(f'PR AUC: {pr_auc:.4f}')
+    if train:
+        print('Evaluating')
+        fpr, tpr, _ = roc_curve(ids, scores, pos_label='B')
+        precision, recall, _ = precision_recall_curve(ids, scores, pos_label='B')
+        roc_auc = auc(fpr, tpr)
+        pr_auc = auc(recall, precision)
+        print(f'ROC AUC: {roc_auc:.4f}')
+        print(f'PR AUC: {pr_auc:.4f}')
+    else:
+        print('Saving scores to CSV')
+        output_file = file.parent / f"{file.stem}_predictions.tsv"
+        if not output_file.exists():
+            df = pd.read_csv(file.parent / f"{file.stem}.tsv", sep='\t')
+            df.to_csv(output_file, index=False, sep='\t')
+        df = pd.read_csv(file.parent / f"{file.stem}_predictions.tsv", sep='\t')
+        df['REST'] = scores
+        df.to_csv(file.parent / f"{file.stem}_predictions.tsv", index=False, sep='\t')
+    print((max(scores), min(scores)))
     end = time.time()
     print(f'Time taken: {end - start:.2f} seconds')
     
