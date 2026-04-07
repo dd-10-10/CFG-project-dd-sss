@@ -78,7 +78,7 @@ def test(file, t_file, k):
 if __name__== "__main__":
     file= "data/tsv/chrAll.fa"
     t_file= "data/tsv/chrAll_unknown.fa"
-    k= 1
+    k= 2
     print(time.time(), " Start")
     print(test(file, t_file, k)[0])
     print(time.time(), " End")

@@ -13,7 +13,7 @@ def count(FOLDER):
         t = df[['ATAC', 'CTCF', 'REST', 'EP300']].values
         for ind in t:
             dir["".join(ind)]+=1
-        print(file, '\n', dir.items())
+        #print(file, '\n', dir.items())
 
     print(dir.items())
 
@@ -37,6 +37,34 @@ def separate(file, tf, atac):
         file_rest.close()
         file_ep300.close()
         
+def merge_preds():
+    chr = [3, 10, 17]
+    with open ('preds_ep300.txt', 'r') as preds_file:
+        preds = "".join([i.strip() for i in preds_file.read()])
+    print(len(preds))
+    
+    pred_index = 0
+    for i in chr:
+        with open(f"data/tsv/chr{i}_200bp_bins_unknown.fa") as f:
+            seqs = np.array(f.readlines()[1::2])
+        mask = np.array(['n' not in i.lower() for i in seqs])
+        print(mask.sum(), end=' ')
+
+        file = Path(f"chr{i}_200bp_bins_unknown_predictions.tsv")
+        df = pd.read_csv(file, sep='\t')
+        print(df.shape, end=' ')
+        df ['EP300'] = np.zeros_like(df['ATAC'])
+        for index in df.index:
+            if mask[index]:
+                df.at[index, 'EP300'] = {'U':0, 'B':1}[preds[pred_index]]
+                pred_index += 1
+            else:
+                print(".", end='')
+                df.at[index, 'EP300'] = None
+        df.to_csv(Path(f"chr{i}_200bp_bins_unknown_predictions_full.tsv"), index=False, sep='\t')
+        print(pred_index)
+
 if __name__ == '__main__':
-    file = Path('data/tsv/chrAll.fa')
-    t = separate(file, 'CTCF', 'B')
+    #file = Path('data/tsv/chrAll.fa')
+    #t = count(file.parent)
+    merge_preds()
