@@ -30,31 +30,18 @@ class DenseNetwork(nn.Module):
 class ConvNetwork(nn.Module):
     def __init__(self):
         super(ConvNetwork, self).__init__()
-        self.convLayers = nn.Sequential(
-            nn.Conv1d(5, 20, 11, 1, 5), # 5th channel for ATAC
+        self.model = nn.Sequential(
+            nn.Conv1d(4, 64, 15),
             nn.ReLU(),
-            nn.MaxPool1d(2),
-
-            nn.Conv1d(20, 100, 7, 1, 3),
-            nn.ReLU(),
-            nn.MaxPool1d(2),
-            
-            nn.Conv1d(100, 300, 5, 1, 2),
-            nn.ReLU(),
-            nn.MaxPool1d(2)
-        )
-        self.flatten = nn.Flatten()
-        self.linearLayer = nn.Sequential(
-            nn.Linear(7500, 1000),
-            nn.ReLU(),
-            nn.Linear(1000, 3),
-            nn.Sigmoid()
+            nn.AdaptiveMaxPool1d(1),
+            nn.Dropout(0.3),
+            nn.Flatten(),
+            nn.Linear(64, 3),
+            nn.Sigmoid(),
         )
 
     def forward(self, x):
-        x = self.convLayers(x)
-        x = self.flatten(x)
-        x = self.linearLayer(x)
+        x = self.model(x)
         return x
 
 class FastaMapDataset(Dataset):
@@ -80,8 +67,8 @@ class FastaMapDataset(Dataset):
         ids = torch.tensor([1 if i == 'B' else 0 for i in id[-3:]], dtype=torch.float32)
         atac = torch.full((200, 1), 1 if id[-4] == 'B' else 0, dtype=torch.float32)
         
-        seq = torch.concat([seq, atac], dim=1).transpose(0, 1)
-        return seq, ids
+        # seq = torch.concat([seq, atac], dim=1)
+        return seq.transpose(0, 1), ids
 
 def load_data(fasta_path:Path) -> tuple[DataLoader, DataLoader, DataLoader]:
     all_records = [[record.seq, record.id] for record in SeqIO.parse(fasta_path, 'fasta')]
@@ -136,7 +123,7 @@ def train(net: ConvNetwork | DenseNetwork, data_loaders: tuple) -> ConvNetwork |
 
         if epoch % 5 == 0:
             logging.info(f"{epoch+1:<3}:\t{running_train_loss}\t{running_val_loss}")
-            torch.save(net.state_dict(), f"NNScripts/models/Dense_Epoch{epoch+1}_TL_{running_train_loss}_VL_{running_val_loss}.pth")
+            torch.save(net.state_dict(), f"NNScripts/models/SmallCNN_Epoch{epoch+1}_TL_{running_train_loss}_VL_{running_val_loss}.pth")
     
     net.eval()
     running_test_loss = 0.0
@@ -153,8 +140,8 @@ def train(net: ConvNetwork | DenseNetwork, data_loaders: tuple) -> ConvNetwork |
     return net
 
 def main() -> None:
-    net = DenseNetwork().to(device)
-    assert net(torch.zeros((1, 5, 200)).to(device)).shape == (1, 3), "Shape Mismatch"
+    net = ConvNetwork().to(device)
+    assert net(torch.zeros((BATCH_SIZE, 4, 200)).to(device)).shape == (BATCH_SIZE, 3), "Shape Mismatch"
     try:
         Path(f"NNScripts/models").mkdir()
     except:
